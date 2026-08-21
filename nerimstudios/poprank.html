@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="PopRank — rankings e batalhas de popularidade da cultura pop. Personagens de animes, filmes, séries e games.">
+    <title>PopRank | Nerimstudios</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/poprank.css">
+</head>
+<body>
+
+<header class="site-header" id="siteHeader">
+    <div class="header-inner">
+        <a href="index.html" class="logo">
+            <div class="logo-mark"><img src="img/channel-avatar.jpg" alt="Logo Nerimstudios"></div>
+            <div class="logo-name"><span>Nerim</span>studios</div>
+        </a>
+        <nav class="nav" id="nav">
+            <a href="index.html">Início</a>
+            <a href="projetos.html">Projetos</a>
+            <a href="poprank.html" class="active">PopRank</a>
+            <a href="contato.html" class="nav-cta">Fale Conosco</a>
+        </nav>
+        <button class="nav-toggle" id="navToggle" aria-label="Abrir menu">☰</button>
+    </div>
+</header>
+
+<section class="page-hero">
+    <div class="container">
+        <h1>Pop<span class="grad">Rank</span></h1>
+        <p>Rankings de popularidade e batalhas entre os personagens mais amados da cultura pop.</p>
+    </div>
+</section>
+
+<section class="section" style="padding-top:20px;">
+    <div class="container">
+        <div class="pr-grid">
+
+            <div class="pr-main">
+
+                <div class="pr-card">
+                    <div class="pr-card-header">
+                        ⚡ BATALHA SUPER <span class="pr-tag">SUPERPODERES</span>
+                        <div class="pr-sub">Quem vence? Escolha o lutador com maior poder total</div>
+                    </div>
+                    <div class="pr-lutadores" id="lutadores"></div>
+                    <div class="pr-popularidade-info" id="popularidade-info"></div>
+                    <div class="pr-comparacao-info" id="comparacao-luta"></div>
+                    <button class="btn btn-primary" onclick="sortearLutaSuper()">⚡ NOVA LUTA</button>
+                    <div class="pr-resultado" id="resultado-luta"></div>
+                    <div class="pr-card-footer">
+                        <span>⚡ Superpoderes</span>
+                        <span>Versus</span>
+                    </div>
+                </div>
+
+                <div class="pr-card">
+                    <div class="pr-card-header">
+                        👊 BATALHA NORMAL <span class="pr-tag">SEM PODERES</span>
+                        <div class="pr-sub">Quem vence? Escolha o lutador com maior poder total</div>
+                    </div>
+                    <div class="pr-lutadores" id="lutadores-normal"></div>
+                    <div class="pr-popularidade-info" id="popularidade-info-normal"></div>
+                    <div class="pr-comparacao-info" id="comparacao-luta-normal"></div>
+                    <button class="btn btn-primary" onclick="sortearLutaNormal()">👊 NOVA LUTA</button>
+                    <div class="pr-resultado" id="resultado-luta-normal"></div>
+                    <div class="pr-card-footer">
+                        <span>👊 Sem poderes</span>
+                        <span>Versus</span>
+                    </div>
+                </div>
+
+                <div class="pr-card">
+                    <div class="pr-card-header">
+                        🎯 ADIVINHE O PERSONAGEM <span class="pr-tag">QUIZ</span>
+                        <div class="pr-sub">Qual personagem tem essas características?</div>
+                    </div>
+                    <div class="pr-dicas" id="dicas"></div>
+                    <div class="pr-personagem-imagem" id="personagem-imagem">
+                        <img id="img-personagem" alt="" crossorigin="anonymous">
+                    </div>
+                    <div class="pr-opcoes-personagem" id="opcoes-personagem"></div>
+                    <div class="pr-btn-wrapper">
+                        <button class="btn btn-primary" onclick="sortearPersonagemAlvo()">🔄 NOVA RODADA</button>
+                    </div>
+                    <div class="pr-resultado" id="resultado-adivinhar"></div>
+                    <div class="pr-card-footer">
+                        <span>🎯 Trivia</span>
+                        <span>Desafio</span>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="pr-sidebar">
+
+                <div class="pr-sidebar-widget">
+                    <div class="pr-widget-title">🏆 Rankings</div>
+                    <select id="ranking-select" class="pr-ranking-select" onchange="gerarRanking(this.value)">
+                        <option value="geral">🏆 Ranking Geral</option>
+                        <option value="ocidente">🌍 Popularidade Ocidente</option>
+                        <option value="oriente">🌏 Popularidade Oriente</option>
+                        <option value="series">📺 Séries</option>
+                        <option value="animes">🎌 Animes</option>
+                        <option value="filmes">🎬 Filmes / HQs</option>
+                        <option value="seriestv">📺 Séries Live Action</option>
+                        <option value="celebridades">🌟 Celebridades</option>
+                    </select>
+                    <div class="pr-ranking-lista" id="ranking-lista"></div>
+                </div>
+
+                <div class="pr-sidebar-widget">
+                    <div class="pr-widget-title">ℹ️ Informações</div>
+                    <div class="pr-info-row"><span>Versão</span><span>2.0</span></div>
+                    <div class="pr-info-row"><span>Motor</span><span>JavaScript</span></div>
+                    <div class="pr-info-row"><span>Banco</span><span>90+ chars</span></div>
+                    <div class="pr-info-row"><span>Categorias</span><span>8</span></div>
+                    <div class="pr-info-row"><span>Status</span><span class="pr-status-online">● Online</span></div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container">
+        <div class="cta-banner reveal">
+            <h2>Quer ver seu personagem favorito em vídeo?</h2>
+            <p>Falamos sobre os mesmos universos no nosso canal do YouTube.</p>
+            <a href="https://www.youtube.com/@nerimstudios" target="_blank" rel="noopener" class="btn btn-primary">Inscrever-se no canal →</a>
+        </div>
+    </div>
+</section>
+
+<footer class="site-footer">
+    <div class="footer-inner">
+        <div class="footer-brand">
+            <a href="index.html" class="logo">
+                <div class="logo-mark"><img src="img/channel-avatar.jpg" alt="Logo Nerimstudios"></div>
+                <div class="logo-name"><span>Nerim</span>studios</div>
+            </a>
+            <p>Estúdio de cultura pop criando vídeos, animações, jogos e conteúdo sobre os universos que você ama.</p>
+        </div>
+        <div class="footer-col">
+            <h4>Navegação</h4>
+            <a href="index.html">Início</a>
+            <a href="index.html#projetos">Destaques</a>
+            <a href="index.html#sobre">Sobre</a>
+            <a href="projetos.html">Projetos</a>
+            <a href="poprank.html">PopRank</a>
+        </div>
+        <div class="footer-col">
+            <h4>Contato</h4>
+            <a href="contato.html">Fale Conosco</a>
+            <a href="https://www.youtube.com/@nerimstudios" target="_blank" rel="noopener">YouTube</a>
+            <a href="https://www.instagram.com/nerimstudios" target="_blank" rel="noopener">Instagram</a>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <span>© <span id="year"></span> Nerimstudios. Todos os direitos reservados.</span>
+        <span>Feito com 💜</span>
+    </div>
+</footer>
+
+<script src="js/main.js"></script>
+<script src="js/poprank.js"></script>
+</body>
+</html>

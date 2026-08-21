@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Projetos da Nerimstudios — vídeos sobre Goku, Homem-Aranha, Hulk, Jean Grey e muito mais da cultura pop.">
+    <title>Projetos | Nerimstudios — Cultura Pop</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="site-header" id="siteHeader">
+    <div class="header-inner">
+        <a href="index.html" class="logo">
+            <div class="logo-mark"><img src="img/channel-avatar.jpg" alt="Logo Nerimstudios"></div>
+            <div class="logo-name"><span>Nerim</span>studios</div>
+        </a>
+        <nav class="nav" id="nav">
+            <a href="index.html">Início</a>
+            <a href="projetos.html" class="active">Projetos</a>
+            <a href="poprank.html">PopRank</a>
+            <a href="contato.html" class="nav-cta">Fale Conosco</a>
+        </nav>
+        <button class="nav-toggle" id="navToggle" aria-label="Abrir menu">☰</button>
+    </div>
+</header>
+
+<section class="page-hero">
+    <div class="container">
+        <h1>Nossos <span class="grad">projetos</span></h1>
+        <p>Vídeos e conteúdo sobre os personagens e universos que você ama.</p>
+    </div>
+</section>
+
+<section class="section" style="padding-top:20px;">
+    <div class="container">
+        <div class="filters">
+            <button class="filter-btn active" onclick="filtrarProjetos('todos', this)">Todos</button>
+            <button class="filter-btn" onclick="filtrarProjetos('videos', this)">🎬 Vídeos</button>
+            <button class="filter-btn" onclick="filtrarProjetos('games', this)">🎮 Games</button>
+            <button class="filter-btn" onclick="filtrarProjetos('animacao', this)">🎨 Animação</button>
+            <button class="filter-btn" onclick="filtrarProjetos('musica', this)">🎵 Música</button>
+        </div>
+
+        <div class="grid-3">
+            <a href="https://www.youtube.com/watch?v=iZQ0M8-nXhY" target="_blank" rel="noopener" class="portfolio-card reveal" data-category="videos">
+                <div class="portfolio-cover cover-purple">
+                    <img src="https://i.ytimg.com/vi/iZQ0M8-nXhY/hqdefault.jpg" alt="05 Curiosidades sobre o Goku" loading="lazy">
+                    <span class="play-badge">▶</span>
+                    <span class="cover-status">Disponível</span>
+                </div>
+                <div class="portfolio-body">
+                    <div class="card-tag"><span class="tag">Vídeos</span></div>
+                    <h3>05 Curiosidades sobre o Goku</h3>
+                    <p>Fatos e segredos sobre o Saiyajin mais famoso dos animes, da origem à transformação lendária.</p>
+                    <div class="portfolio-meta">
+                        <span>🎥 YouTube</span>
+                        <span class="status-live">Assistir →</span>
+                    </div>
+                </div>
+            </a>
+
+            <a href="https://www.youtube.com/shorts/lD04QvAySU4" target="_blank" rel="noopener" class="portfolio-card reveal" data-category="videos">
+                <div class="portfolio-cover cover-pink">
+                    <img src="https://i.ytimg.com/vi/lD04QvAySU4/hqdefault.jpg" alt="O maior erro sobre o Homem-Aranha" loading="lazy">
+                    <span class="play-badge">▶</span>
+                    <span class="cover-status">Disponível</span>
+                </div>
+                <div class="portfolio-body">
+                    <div class="card-tag"><span class="tag pink">Vídeos</span></div>
+                    <h3>O maior erro sobre o Homem-Aranha</h3>
+                    <p>Com poder também vem responsabilidade. O que muita gente erra sobre o herói da vizinhança.</p>
+                    <div class="portfolio-meta">
+                        <span>🎥 YouTube</span>
+                        <span class="status-live">Assistir →</span>
+                    </div>
+                </div>
+            </a>
+
+            <a href="https://www.youtube.com/shorts/_QfUJ1dTDa0" target="_blank" rel="noopener" class="portfolio-card reveal" data-category="videos">
+                <div class="portfolio-cover cover-cyan">
+                    <img src="https://i.ytimg.com/vi/_QfUJ1dTDa0/hqdefault.jpg" alt="O Hulk é praticamente impossível de derrotar..." loading="lazy">
+                    <span class="play-badge">▶</span>
+                    <span class="cover-status">Disponível</span>
+                </div>
+                <div class="portfolio-body">
+                    <div class="card-tag"><span class="tag cyan">Vídeos</span></div>
+                    <h3>O Hulk é praticamente impossível de derrotar...</h3>
+                    <p>Quanto mais forte o Hulk fica, mais difícil se torna vencê-lo. Entenda a fúria esmeralda.</p>
+                    <div class="portfolio-meta">
+                        <span>🎥 YouTube</span>
+                        <span class="status-live">Assistir →</span>
+                    </div>
+                </div>
+            </a>
+
+            <a href="https://www.youtube.com/shorts/m_wbesWmEYM" target="_blank" rel="noopener" class="portfolio-card reveal" data-category="videos">
+                <div class="portfolio-cover cover-amber">
+                    <img src="https://i.ytimg.com/vi/m_wbesWmEYM/hqdefault.jpg" alt="A mutante mais poderosa da Marvel" loading="lazy">
+                    <span class="play-badge">▶</span>
+                    <span class="cover-status">Disponível</span>
+                </div>
+                <div class="portfolio-body">
+                    <div class="card-tag"><span class="tag amber">Vídeos</span></div>
+                    <h3>A mutante mais poderosa da Marvel</h3>
+                    <p>Conheça a Fênix e descubra por que Jean Grey carrega o título de mutante mais poderosa.</p>
+                    <div class="portfolio-meta">
+                        <span>🎥 YouTube</span>
+                        <span class="status-live">Assistir →</span>
+                    </div>
+                </div>
+            </a>
+        </div>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container">
+        <div class="cta-banner reveal">
+            <h2>Gostou dos vídeos?</h2>
+            <p>Inscreva-se no canal e acompanhe as próximas histórias da cultura pop no YouTube.</p>
+            <a href="https://www.youtube.com/@nerimstudios" target="_blank" rel="noopener" class="btn btn-primary">Inscrever-se no canal →</a>
+        </div>
+    </div>
+</section>
+
+<footer class="site-footer">
+    <div class="footer-inner">
+        <div class="footer-brand">
+            <a href="index.html" class="logo">
+                <div class="logo-mark"><img src="img/channel-avatar.jpg" alt="Logo Nerimstudios"></div>
+                <div class="logo-name"><span>Nerim</span>studios</div>
+            </a>
+            <p>Estúdio de cultura pop criando vídeos, animações, jogos e conteúdo sobre os universos que você ama.</p>
+        </div>
+        <div class="footer-col">
+            <h4>Navegação</h4>
+            <a href="index.html">Início</a>
+            <a href="index.html#projetos">Destaques</a>
+            <a href="index.html#sobre">Sobre</a>
+            <a href="projetos.html">Projetos</a>
+            <a href="poprank.html">PopRank</a>
+        </div>
+        <div class="footer-col">
+            <h4>Contato</h4>
+            <a href="contato.html">Fale Conosco</a>
+            <a href="https://www.youtube.com/@nerimstudios" target="_blank" rel="noopener">YouTube</a>
+            <a href="https://www.instagram.com/nerimstudios" target="_blank" rel="noopener">Instagram</a>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <span>© <span id="year"></span> Nerimstudios. Todos os direitos reservados.</span>
+        <span>Feito com 💜</span>
+    </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>
