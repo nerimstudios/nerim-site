@@ -1,0 +1,11 @@
+# Laragon root artifacts
+index.html
+index.php
+teste/
+
+# Kilo / scratch
+checkpoint.md
+
+# OS
+.DS_Store
+Thumbs.db
