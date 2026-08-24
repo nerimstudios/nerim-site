@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Fórum da Nerimstudios — participe da comunidade, comente sobre cultura pop, animes, quadrinhos, games e séries.">
+    <title>Fórum | Nerimstudios — Comunidade</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/forum.css">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon.png">
+    <meta name="theme-color" content="#08080b">
+    <script src="https://accounts.google.com/gsi/client" defer></script>
+</head>
+<body>
+
+<header class="site-header" id="siteHeader">
+    <div class="header-inner">
+        <a href="index.html" class="logo">
+            <div class="logo-mark"><img src="img/channel-avatar.jpg" alt="Logo Nerimstudios"></div>
+            <div class="logo-name"><span>Nerim</span>studios</div>
+        </a>
+        <nav class="nav" id="nav">
+            <a href="index.html">Início</a>
+            <a href="projetos.html">Projetos</a>
+            <a href="poprank.html">PopRank</a>
+            <a href="forum.html" class="active">Fórum</a>
+            <a href="contato.html" class="nav-cta">Fale Conosco</a>
+        </nav>
+        <button class="nav-toggle" id="navToggle" aria-label="Abrir menu">☰</button>
+    </div>
+</header>
+
+<section class="page-hero">
+    <div class="container">
+        <h1>Fórum da <span class="grad">comunidade</span></h1>
+        <p>Fale sobre cultura pop, animes, quadrinhos, games e séries com outros fãs. Faça login com o Google para comentar.</p>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container forum-layout">
+
+        <!-- Login / Auth -->
+        <aside class="forum-auth" id="forumAuth">
+            <div class="auth-card" id="authCard">
+                <h3>Faça login com o Google</h3>
+                <p>Para postar comentários e participar do fórum, autentique-se com sua conta Google.</p>
+                <div id="googleBtnContainer"></div>
+                <p class="auth-note">Usamos apenas seu nome e foto de perfil para exibir seus comentários. Nenhum dado é armazenado no servidor.</p>
+            </div>
+            <div class="auth-card logged-in-card" id="loggedCard" style="display:none;">
+                <div class="avatar"><img id="userAvatar" src="" alt="Você"></div>
+                <div class="user-info">
+                    <strong id="userName"></strong>
+                    <span id="userEmail"></span>
+                </div>
+                <button class="btn btn-ghost btn-sm" id="logoutBtn">Sair</button>
+            </div>
+        </aside>
+
+        <!-- Main forum -->
+        <main class="forum-main">
+            <div class="forum-toolbar">
+                <div class="forum-filters" id="forumFilters">
+                    <button class="filter-btn active" data-filter="todos">Todos</button>
+                    <button class="filter-btn" data-filter="anime">Anime</button>
+                    <button class="filter-btn" data-filter="hq">HQs</button>
+                    <button class="filter-btn" data-filter="games">Games</button>
+                    <button class="filter-btn" data-filter="filmes">Filmes/Séries</button>
+                </div>
+                <button class="btn btn-primary btn-sm" id="newTopicBtn" style="display:none;">+ Novo tópico</button>
+            </div>
+
+            <!-- New topic form -->
+            <div class="new-topic-form" id="newTopicForm" style="display:none;">
+                <div class="form-group">
+                    <label for="topicTitle">Título do tópico</label>
+                    <input type="text" id="topicTitle" placeholder="Ex: Qual melhor arco de Dragon Ball?" maxlength="120">
+                </div>
+                <div class="form-group">
+                    <label for="topicBody">Mensagem</label>
+                    <textarea id="topicBody" rows="4" placeholder="Compartilhe sua opinião com a comunidade..." maxlength="2000"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="topicCategory">Categoria</label>
+                    <select id="topicCategory">
+                        <option value="todos">Geral</option>
+                        <option value="anime">Anime</option>
+                        <option value="hq">Hqs</option>
+                        <option value="games">Games</option>
+                        <option value="filmes">Filmes/Séries</option>
+                    </select>
+                </div>
+                <div style="display:flex;gap:10px;">
+                    <button class="btn btn-primary" id="postTopicBtn">Publicar tópico</button>
+                    <button class="btn btn-ghost" id="cancelTopicBtn">Fechar</button>
+                </div>
+            </div>
+
+            <!-- Topics list -->
+            <div class="topics-list" id="topicsList">
+                <div class="forum-empty">
+                    <div class="forum-empty-icon">💬</div>
+                    <h3>Ainda não há tópicos</h3>
+                    <p>Seja o primeiro a iniciar uma conversa na comunidade. Faça login com o Google para criar um tópico.</p>
+                </div>
+            </div>
+        </main>
+    </div>
+</section>
+
+<footer class="site-footer">
+    <div class="footer-inner">
+        <div class="footer-brand">
+            <a href="index.html" class="logo">
+                <div class="logo-mark"><img src="img/channel-avatar.jpg" alt="Logo Nerimstudios"></div>
+                <div class="logo-name"><span>Nerim</span>studios</div>
+            </a>
+            <p>Estúdio de cultura pop criando vídeos, animações, jogos e conteúdo sobre os universos que você ama.</p>
+        </div>
+        <div class="footer-col">
+            <h4>Navegação</h4>
+            <a href="index.html">Início</a>
+            <a href="index.html#projetos">Destaques</a>
+            <a href="index.html#sobre">Sobre</a>
+            <a href="projetos.html">Projetos</a>
+            <a href="poprank.html">PopRank</a>
+            <a href="forum.html" class="active">Fórum</a>
+        </div>
+        <div class="footer-col">
+            <h4>Contato</h4>
+            <a href="contato.html">Fale Conosco</a>
+            <a href="https://www.youtube.com/@nerimstudios" target="_blank" rel="noopener">YouTube</a>
+            <a href="https://www.instagram.com/nerimstudios" target="_blank" rel="noopener">Instagram</a>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <span>© <span id="year"></span> Nerimstudios. Todos os direitos reservados.</span>
+        <span>Feito com 💜</span>
+    </div>
+</footer>
+
+<script src="js/main.js"></script>
+<script src="js/forum.js"></script>
+</body>
+</html>
