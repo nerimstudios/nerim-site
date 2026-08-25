@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="PopRank — rankings e batalhas de popularidade da cultura pop. Personagens de animes, filmes, séries e games.">
-    <title>PopRank | Nerimstudios</title>
+    <title>PopRank | Nerimstudios — Cultura Pop</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -25,7 +25,7 @@
         <nav class="nav" id="nav">
             <a href="index.html">Início</a>
             <a href="projetos.html">Projetos</a>
-            <a href="poprank.html" class="active">PopRank</a>
+            <a href="poprank.html">PopRank</a>
             <a href="forum.html">Fórum</a>
             <a href="contato.html" class="nav-cta">Fale Conosco</a>
         </nav>
@@ -40,68 +40,69 @@
     </div>
 </section>
 
-<section class="section" style="padding-top:20px;">
+<section class="section">
     <div class="container">
-        <div class="pr-grid">
+        <div class="pr-wrapper">
 
-            <div class="pr-main">
-
-                <div class="pr-card">
-                    <div class="pr-card-header">
-                        ⚡ BATALHA SUPER <span class="pr-tag">SUPERPODERES</span>
-                        <div class="pr-sub">Quem vence? Escolha o lutador com maior poder total</div>
+            <!-- Main content area -->
+            <main class="pr-main">
+                <div class="pr-cards-grid">
+                    <!-- Superpoderes Card -->
+                    <div class="pr-card">
+                        <div class="pr-card-header">
+                            <span class="pr-icon">⚡</span>
+                            <h3 class="pr-card-title">Batalha de Superpoderes</h3>
+                        </div>
+                        <div class="pr-card-body">
+                            <p class="pr-card-description">Quem vence? Escolha o lutador com maior poder total.</p>
+                            <div class="pr-lutadores" id="lutadores"></div>
+                            <div class="pr-popularidade-info" id="popularidade-info"></div>
+                            <div class="pr-comparacao-info" id="comparacao-luta"></div>
+                            <button class="btn btn-primary w-100" onclick="sortearLutaSuper()">⚡ NOVA LUTA</button>
+                            <div class="pr-resultado" id="resultado-luta"></div>
+                        </div>
                     </div>
-                    <div class="pr-lutadores" id="lutadores"></div>
-                    <div class="pr-popularidade-info" id="popularidade-info"></div>
-                    <div class="pr-comparacao-info" id="comparacao-luta"></div>
-                    <button class="btn btn-primary" onclick="sortearLutaSuper()">⚡ NOVA LUTA</button>
-                    <div class="pr-resultado" id="resultado-luta"></div>
-                    <div class="pr-card-footer">
-                        <span>⚡ Superpoderes</span>
-                        <span>Versus</span>
+
+                    <!-- Sem Poderes Card -->
+                    <div class="pr-card">
+                        <div class="pr-card-header">
+                            <span class="pr-icon">👊</span>
+                            <h3 class="pr-card-title">Batalha Sem Poderes</h3>
+                        </div>
+                        <div class="pr-card-body">
+                            <p class="pr-card-description">Quem vence? Escolha o lutador com maior poder total.</p>
+                            <div class="pr-lutadores" id="lutadores-normal"></div>
+                            <div class="pr-popularidade-info" id="popularidade-info-normal"></div>
+                            <div class="pr-comparacao-info" id="comparacao-luta-normal"></div>
+                            <button class="btn btn-primary w-100" onclick="sortearLutaNormal()">👊 NOVA LUTA</button>
+                            <div class="pr-resultado" id="resultado-luta-normal"></div>
+                        </div>
+                    </div>
+
+                    <!-- Quiz Card -->
+                    <div class="pr-card">
+                        <div class="pr-card-header">
+                            <span class="pr-icon">🎯</span>
+                            <h3 class="pr-card-title">Adivinhe o Personagem</h3>
+                        </div>
+                        <div class="pr-card-body">
+                            <p class="pr-card-description">Qual personagem tem essas características?</p>
+                            <div class="pr-dicas" id="dicas"></div>
+                            <div class="pr-personagem-imagem">
+                                <img id="img-personagem" alt="" crossorigin="anonymous">
+                            </div>
+                            <div class="pr-opcoes-personagem" id="opcoes-personagem"></div>
+                            <div class="pr-btn-wrapper">
+                                <button class="btn btn-primary" onclick="sortearPersonagemAlvo()">🔄 NOVA RODADA</button>
+                            </div>
+                            <div class="pr-resultado" id="resultado-adivinhar"></div>
+                        </div>
                     </div>
                 </div>
+            </main>
 
-                <div class="pr-card">
-                    <div class="pr-card-header">
-                        👊 BATALHA NORMAL <span class="pr-tag">SEM PODERES</span>
-                        <div class="pr-sub">Quem vence? Escolha o lutador com maior poder total</div>
-                    </div>
-                    <div class="pr-lutadores" id="lutadores-normal"></div>
-                    <div class="pr-popularidade-info" id="popularidade-info-normal"></div>
-                    <div class="pr-comparacao-info" id="comparacao-luta-normal"></div>
-                    <button class="btn btn-primary" onclick="sortearLutaNormal()">👊 NOVA LUTA</button>
-                    <div class="pr-resultado" id="resultado-luta-normal"></div>
-                    <div class="pr-card-footer">
-                        <span>👊 Sem poderes</span>
-                        <span>Versus</span>
-                    </div>
-                </div>
-
-                <div class="pr-card">
-                    <div class="pr-card-header">
-                        🎯 ADIVINHE O PERSONAGEM <span class="pr-tag">QUIZ</span>
-                        <div class="pr-sub">Qual personagem tem essas características?</div>
-                    </div>
-                    <div class="pr-dicas" id="dicas"></div>
-                    <div class="pr-personagem-imagem" id="personagem-imagem">
-                        <img id="img-personagem" alt="" crossorigin="anonymous">
-                    </div>
-                    <div class="pr-opcoes-personagem" id="opcoes-personagem"></div>
-                    <div class="pr-btn-wrapper">
-                        <button class="btn btn-primary" onclick="sortearPersonagemAlvo()">🔄 NOVA RODADA</button>
-                    </div>
-                    <div class="pr-resultado" id="resultado-adivinhar"></div>
-                    <div class="pr-card-footer">
-                        <span>🎯 Trivia</span>
-                        <span>Desafio</span>
-                    </div>
-                </div>
-
-            </div>
-
-            <div class="pr-sidebar">
-
+            <!-- Sidebar -->
+            <aside class="pr-sidebar">
                 <div class="pr-sidebar-widget">
                     <div class="pr-widget-title">🏆 Rankings</div>
                     <select id="ranking-select" class="pr-ranking-select" onchange="gerarRanking(this.value)">
@@ -125,9 +126,7 @@
                     <div class="pr-info-row"><span>Categorias</span><span>8</span></div>
                     <div class="pr-info-row"><span>Status</span><span class="pr-status-online">● Online</span></div>
                 </div>
-
-            </div>
-
+            </aside>
         </div>
     </div>
 </section>
