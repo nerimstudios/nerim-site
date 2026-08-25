@@ -99,6 +99,31 @@ var quizData = {
       question: 'Quem matou o Cell?',
       options: ['Goku', 'Gohan', 'Vegeta', 'Trunks'],
       answer: 1
+    },
+    {
+      question: 'Quem é o irmão mais novo de Dean Winchester?',
+      options: ['Sam Winchester', 'Castiel', 'Bobby Singer', 'Crowley'],
+      answer: 0
+    },
+    {
+      question: 'Qual é o nome do melhor amigo de Dean que é um anjo?',
+      options: ['Sam Winchester', 'Castiel', 'Bobby Singer', 'Rowena'],
+      answer: 1
+    },
+    {
+      question: 'Qual é o nome do carro favorito de Dean?',
+      options: ['Chevy Impala 1967', 'Ford Mustang', 'Chevy Camaro', 'Pontiac GTO'],
+      answer: 0
+    },
+    {
+      question: 'Quem é o pai de Dean e Sam?',
+      options: ['John Winchester', 'Henry Winchester', 'Michael', 'Adam'],
+      answer: 0
+    },
+    {
+      question: 'Qual é o nome do demônio que matou a mãe de Dean?',
+      options: ['Azazel', 'Lilith', 'Ramiel', 'Dagon'],
+      answer: 0
     }
   ]
 };

@@ -1100,39 +1100,68 @@ button { font-family: inherit; cursor: pointer; }
 /* ---------- Social ---------- */
 
 .social-links {
-    display: flex;
-    gap: 16px;
-    justify-content: center;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 14px;
 }
 
 .social-btn {
-    display: inline-flex;
+    display: flex;
+    flex-direction: column;
     align-items: center;
     gap: 10px;
-    padding: 14px 22px;
+    padding: 20px 14px;
     border-radius: var(--radius);
     border: 1px solid var(--border);
     background: var(--bg-card);
     color: var(--text);
     text-decoration: none;
-    transition: transform 0.2s, border 0.2s, box-shadow 0.2s;
+    transition: transform 0.2s, border 0.2s, box-shadow 0.2s, background 0.2s;
 }
 
 .social-btn:hover {
-    transform: translateY(-3px);
+    transform: translateY(-4px);
     border-color: var(--border-strong);
     box-shadow: var(--shadow-glow);
+    background: var(--bg-card-solid);
     color: var(--text);
 }
 
 .social-icon {
-    font-size: 1.3rem;
+    font-size: 1.6rem;
+    line-height: 1;
 }
 
 .social-label {
     font-weight: 600;
-    font-size: 0.9rem;
+    font-size: 0.85rem;
+    text-align: center;
+}
+
+.footer-social-links {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-top: 10px;
+}
+
+.footer-social-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 14px;
+    border-radius: 20px;
+    border: 1px solid var(--border);
+    background: var(--bg-card);
+    color: var(--text-soft);
+    text-decoration: none;
+    font-size: 0.82rem;
+    transition: color 0.2s, border 0.2s;
+}
+
+.footer-social-link:hover {
+    color: var(--text);
+    border-color: var(--border-strong);
 }
 
 /* ---------- Responsive extra ---------- */
@@ -1141,12 +1170,14 @@ button { font-family: inherit; cursor: pointer; }
     .news-grid { grid-template-columns: repeat(2, 1fr); }
     .vote-options { gap: 10px; }
     .vote-btn { min-width: 100px; padding: 18px 14px; }
+    .social-links { grid-template-columns: repeat(3, 1fr); }
 }
 
 @media (max-width: 720px) {
     .news-grid { grid-template-columns: 1fr; }
     .vote-options { flex-direction: column; align-items: stretch; }
     .vote-btn { flex-direction: row; justify-content: center; }
-    .social-links { gap: 10px; }
-    .social-btn { padding: 12px 16px; }
+    .social-links { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+    .social-btn { padding: 16px 12px; }
+    .social-icon { font-size: 1.4rem; }
 }
