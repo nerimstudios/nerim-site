@@ -523,7 +523,7 @@ function sortearPersonagemAlvo() {
     `;
 
     document.getElementById("resultado-adivinhar").textContent = "";
-    const imgEl = document.querySelector("#personagem-imagem img");
+    const imgEl = document.getElementById("img-personagem");
     if (imgEl) imgEl.classList.remove("mostrar");
 
     bloqueado = false;
@@ -556,7 +556,7 @@ function escolherPersonagem(nome) {
     if (nome === personagemAlvo.nome) {
         resultadoEl.textContent = `🎉 Correto! O personagem era ${personagemAlvo.nome}!`;
         botoes.forEach(b => { if (b.textContent === personagemAlvo.nome) b.classList.add("acertou"); });
-        const imgEl = document.querySelector("#personagem-imagem img");
+        const imgEl = document.getElementById("img-personagem");
         if (imgEl) imgEl.src = `https://ui-avatars.com/api/?name=${encodeURIComponent(personagemAlvo.nome)}&background=6366f1&color=fff&size=72&bold=true`;
         if (imgEl) imgEl.classList.add("mostrar");
     } else {

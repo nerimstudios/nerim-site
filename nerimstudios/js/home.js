@@ -139,33 +139,12 @@ var quizState = { current: 0, score: 0, quizType: 'dragonball' };
 function startQuiz(quizType) {
   quizState = { current: 0, score: 0, quizType: quizType };
   
-  // Esconder todas as telas de quiz
-  document.getElementById('quiz-start-dragonball').style.display = 'none';
-  document.getElementById('quiz-game-dragonball').style.display = 'none';
-  document.getElementById('quiz-result-dragonball').style.display = 'none';
-  document.getElementById('quiz-start-supernatural').style.display = 'none';
-  document.getElementById('quiz-game-supernatural').style.display = 'none';
-  document.getElementById('quiz-result-supernatural').style.display = 'none';
-  
-  // Mostrar o quiz correto
-  if (quizType === 'supernatural') {
-    document.getElementById('quiz-start-supernatural').style.display = 'block';
-    document.getElementById('quiz-start-supernatural').innerHTML = `
-      <h3>Quiz: Supernatural - Dean Winchester</h3>
-      <p>5 perguntas para testar seus conhecimentos sobre o maior assassino das séries.</p>
-      <button class="btn btn-primary" onclick="startQuiz('supernatural')">Iniciar Quiz →</button>
-    `;
-  } else {
-    document.getElementById('quiz-start-dragonball').style.display = 'block';
-    document.getElementById('quiz-start-dragonball').innerHTML = `
-      <h3>Quiz: Dragon Ball</h3>
-      <p>5 perguntas para testar seus conhecimentos sobre o universo de Dragon Ball.</p>
-      <button class="btn btn-primary" onclick="startQuiz('dragonball')">Iniciar Quiz →</button>
-    `;
-  }
-}
-  document.getElementById('quiz-game').style.display = 'none';
+  // Esconder tela de seleção e resultado, mostrar o jogo
+  document.getElementById('quiz-start').style.display = 'none';
   document.getElementById('quiz-result').style.display = 'none';
+  document.getElementById('quiz-game').style.display = 'block';
+  
+  renderQuizQuestion();
 }
 
 function renderQuizQuestion() {
@@ -227,31 +206,13 @@ function showQuizResult() {
   text.textContent = scoreText;
 }
 
-function restartQuiz(quizType) {
-  var dragonballStart = document.getElementById('quiz-start-dragonball');
-  var dragonballGame = document.getElementById('quiz-game-dragonball');
-  var dragonballResult = document.getElementById('quiz-result-dragonball');
-  var supernaturalStart = document.getElementById('quiz-start-supernatural');
-  var supernaturalGame = document.getElementById('quiz-game-supernatural');
-  var supernaturalResult = document.getElementById('quiz-result-supernatural');
+function restartQuiz() {
+  quizState = { current: 0, score: 0, quizType: 'dragonball' };
   
-  quizState = { current: 0, score: 0, quizType: quizType };
-  
-  if (quizType === 'supernatural') {
-    supernaturalStart.style.display = 'block';
-    supernaturalGame.style.display = 'none';
-    supernaturalResult.style.display = 'none';
-    dragonballStart.style.display = 'none';
-    dragonballGame.style.display = 'none';
-    dragonballResult.style.display = 'none';
-  } else {
-    dragonballStart.style.display = 'block';
-    dragonballGame.style.display = 'none';
-    dragonballResult.style.display = 'none';
-    supernaturalStart.style.display = 'none';
-    supernaturalGame.style.display = 'none';
-    supernaturalResult.style.display = 'none';
-  }
+  // Voltar para a tela de seleção de quiz
+  document.getElementById('quiz-game').style.display = 'none';
+  document.getElementById('quiz-result').style.display = 'none';
+  document.getElementById('quiz-start').style.display = 'block';
 }
 
 /* Inicializar votação ao carregar */

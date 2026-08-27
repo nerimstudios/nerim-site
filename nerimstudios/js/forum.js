@@ -16,6 +16,7 @@
   const topicsList = document.getElementById('topicsList');
   const forumEmpty = document.querySelector('.forum-empty');
   const newTopicForm = document.getElementById('newTopicForm');
+  const newTopicBtn = document.getElementById('newTopicBtn');
   const postTopicBtn = document.getElementById('postTopicBtn');
   const cancelTopicBtn = document.getElementById('cancelTopicBtn');
   const topicTitle = document.getElementById('topicTitle');
@@ -244,8 +245,8 @@
     topicsList.appendChild(commentsSection);
 
     // Botão publicar comentário
-    postCommentBtn = document.getElementById('postCommentBtn');
-    cancelCommentBtn = document.getElementById('cancelCommentBtn');
+    const postCommentBtn = document.getElementById('postCommentBtn');
+    const cancelCommentBtn = document.getElementById('cancelCommentBtn');
     const commentInput = document.getElementById('commentInput');
 
     postCommentBtn.onclick = () => {
@@ -325,26 +326,22 @@
     renderTopics();
     // Fechar formulário
     newTopicForm.style.display = 'none';
-    newTopicForm.style.display = 'block'; // reset visual
-    postTopicBtn.disabled = false;
+    newTopicBtn.disabled = false;
   }
 
   // Event Listeners
   initGoogle();
 
-  // Login via Google
-  loginWithGoogle();
-
   // Mostrar/esconder formulário de novo tópico
   newTopicForm.style.display = 'none';
-  postTopicBtn.onclick = () => {
+  newTopicBtn.onclick = () => {
     if (!user) {
       loginWithGoogle();
       return;
     }
     newTopicForm.style.display = 'block';
-    postTopicBtn.disabled = true; // evitar duplo clique
-    setTimeout(() => postTopicBtn.disabled = false, 3000);
+    newTopicBtn.disabled = true; // evitar duplo clique
+    setTimeout(() => newTopicBtn.disabled = false, 3000);
   };
   cancelTopicBtn.onclick = () => newTopicForm.style.display = 'none';
 
@@ -357,7 +354,7 @@
     topicTitle.value = '';
     topicBody.value = '';
     topicCategory.value = 'todos';
-    postTopicBtn.disabled = false;
+    newTopicBtn.disabled = false;
   };
 
   // Filtros
