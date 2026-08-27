@@ -26,6 +26,7 @@
             <a href="index.html" class="active">Início</a>
             <a href="projetos.html">Projetos</a>
             <a href="poprank.html">PopRank</a>
+            <a href="games.html">Games</a>
             <a href="forum.html">Fórum</a>
             <a href="contato.html" class="nav-cta">Fale Conosco</a>
         </nav>
@@ -302,14 +303,24 @@
     </div>
 </section>
 
-<section class="section">
+</div>
+    </div>
+</section>
+
+<section class="section" id="games">
     <div class="container">
         <div class="section-header reveal">
-            <span class="section-eyebrow">Interaja</span>
-            <h2>🔥 Qual personagem você escolheria?</h2>
-            <p>Vote no seu personagem favorito da cultura pop. O ranking é atualizado em tempo real.</p>
+            <span class="section-eyebrow">Games</span>
+            <h2>🎮 Games & Desafios</h2>
+            <p>Divirta-se com nossos desafios e rankings de personagens.</p>
         </div>
+        
+        <!-- Vote Section -->
         <div class="vote-card reveal">
+            <div class="section-header small-header reveal">
+                <span>Votação</span>
+            </div>
+            <p>Vote no seu personagem favorito da cultura pop.</p>
             <div class="vote-options" id="vote-options">
                 <button class="vote-btn" data-character="Goku" onclick="vote('Goku')">
                     <span class="vote-emoji">💪</span>
@@ -336,8 +347,92 @@
                 <button class="btn btn-ghost btn-sm" onclick="resetVote()">Votar novamente</button>
             </div>
         </div>
-    </div>
-</section>
+        
+        <!-- PopRank Section -->
+        <section class="section" style="padding-top: 0;">
+            <div class="container">
+                <div class="section-header small-header reveal">
+                    <span>PopRank</span>
+                    <h2>🏶 Batalha de Superpoderes</h2>
+                    <p>Quem vence? Escolha o lutador com maior poder total.</p>
+                </div>
+                <div class="grid-3">
+                    <a href="#!" class="portfolio-card reveal">
+                        <div class="portfolio-cover cover-purple">
+                            <span class="play-badge">⚡</span>
+                        </div>
+                        <div class="portfolio-body">
+                            <h3>Batalha de Superpoderes</h3>
+                            <p>Quem vence? Escolha o lutador com maior poder total.</p>
+                            <div class="portfolio-meta">
+                                <span>⚡ Superpoderes</span>
+                                <span class="status-live">Jogar →</span>
+                            </div>
+                        </div>
+                    </a>
+                    <a href="#!" class="portfolio-card reveal">
+                        <div class="portfolio-cover cover-pink">
+                            <span class="play-badge">👊</span>
+                        </div>
+                        <div class="portfolio-body">
+                            <h3>Batalha Sem Poderes</h3>
+                            <p>Sem poderes, sem desculpas. Quem ganha no combate corpo a corpo?</p>
+                            <div class="portfolio-meta">
+                                <span>👊 Versus</span>
+                                <span class="status-live">Jogar →</span>
+                            </div>
+                        </div>
+                    </a>
+                    <a href="#!" class="portfolio-card reveal">
+                        <div class="portfolio-cover cover-cyan">
+                            <span class="play-badge">🎯</span>
+                        </div>
+                        <div class="portfolio-body">
+                            <h3>Adivinhe o Personagem</h3>
+                            <p>Teste seus conhecimentos e adivinhe qual personagem está sendo descrito.</p>
+                            <div class="portfolio-meta">
+                                <span>🎯 Quiz</span>
+                                <span class="status-live">Jogar →</span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Quiz Section -->
+        <section class="section">
+            <div class="container">
+                <div class="section-header small-header reveal">
+                    <span>Quiz</span>
+                    <h2>🧠 Desafio de Cultura Pop</h2>
+                    <p>Teste seus conhecimentos sobre Dragon Ball e Supernatural.</p>
+                </div>
+                <div class="quiz-card reveal">
+                    <div id="quiz-container">
+                        <div id="quiz-start">
+                            <h3>Escolha um quiz:</h3>
+                            <button class="btn btn-primary" onclick="startQuiz('dragonball')">Dragon Ball →</button>
+                            <button class="btn btn-secondary" onclick="startQuiz('supernatural')">Supernatural ←</button>
+                        </div>
+                        <div id="quiz-game" style="display:none;">
+                            <div class="quiz-progress">
+                                <span id="quiz-question-number">Pergunta 1 de 5</span>
+                                <span id="quiz-score">Pontos: 0</span>
+                            </div>
+                            <div id="quiz-question-text" class="quiz-question"></div>
+                            <div id="quiz-options" class="quiz-options"></div>
+                            <div id="quiz-feedback" class="quiz-feedback"></div>
+                        </div>
+                        <div id="quiz-result" style="display:none;">
+                            <h3 id="quiz-result-title"></h3>
+                            <p id="quiz-result-text"></p>
+                            <button class="btn btn-primary" onclick="restartQuiz()">Jogar novamente →</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
 <section class="section" id="sobre">
     <div class="container">
