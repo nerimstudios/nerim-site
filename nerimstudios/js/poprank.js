@@ -1,4 +1,4 @@
-﻿const personagens = [
+const personagens = [
     { nome: "Goku", serie: "Dragon Ball", popularidade: 1000, ocidente: 1000, oriente: 1000, heroi: true, humano: true, anime: true, superpoderes: true, armadura: false, vilao: false, magia: false, voa: true, transformacao: true, forca: 1000, magia_poder: 100, qi: 600, qi_batalha: 1000, exp: 950, velocidade: 980, resistencia: 975, defesa: 1000, taijutsu: 993, ninjutsu: 550, genjutsu: 350 },
     { nome: "Freeza", serie: "Dragon Ball", popularidade: 880, ocidente: 850, oriente: 900, heroi: false, humano: false, anime: true, superpoderes: true, armadura: false, vilao: true, magia: false, voa: true, transformacao: true, forca: 920, magia_poder: 200, qi: 800, qi_batalha: 900, exp: 900, velocidade: 900, resistencia: 910, defesa: 910, taijutsu: 907, ninjutsu: 633, genjutsu: 500 },
     { nome: "Vegeta", serie: "Dragon Ball", popularidade: 930, ocidente: 900, oriente: 950, heroi: true, humano: true, anime: true, superpoderes: true, armadura: true, vilao: false, magia: false, voa: true, transformacao: true, forca: 950, magia_poder: 80, qi: 700, qi_batalha: 950, exp: 920, velocidade: 930, resistencia: 935, defesa: 950, taijutsu: 943, ninjutsu: 567, genjutsu: 390 },
@@ -152,8 +152,8 @@ personagens.forEach(p => {
     const forcaRelativa = Math.round(top3[0] / (media || 1) * 100);
 
     if (forcaRelativa > 160) {
-        p.forca = Math.round(p.forca * (p.forca > 700 ? 1 : 1));
-        p.qi = Math.round(p.qi * (p.qi < 600 ? 0.85 : 1));
+        p.forca = Math.round(p.forca * 0.95);
+        p.qi = Math.round(p.qi * 0.85);
         p.genjutsu = Math.round(p.genjutsu * 0.8);
         p.taijutsu = Math.round(p.taijutsu * 0.85);
     }
@@ -173,7 +173,7 @@ personagens.forEach(p => {
 
     if (p.serie === "Harry Potter" && p.magia_poder > 800) {
         ['forca','velocidade','resistencia','defesa','taijutsu'].forEach(s => {
-            p[s] = Math.round(p[s] * 0.6);
+            p[s] = Math.round(p[s] * 0.45);
         });
     }
 
@@ -210,7 +210,6 @@ personagens.forEach(p => {
         "Guts": ["Ego", "Escuridão"],
         "Vegeta": ["Orgulho Saiyajin"],
         "Saitama": ["Tédio"],
-        "Sasuke Uchiha": "", // will ignore
         "Light Yagami": ["Morte ao Escrever"],
         "Eren Yeager": ["Determinação Abalada"],
         "Darth Vader": ["Circuito Danificado"],
@@ -277,6 +276,7 @@ personagens.forEach(p => {
         ? fraquezasIconicas[p.nome]
         : [...new Set(fraquezasAuto)].slice(0, 3);
 
+    if (!p.fraquezas.length && fraquezasAuto.length > 0) p.fraquezas = [...new Set(fraquezasAuto)].slice(0, 3);
     if (!p.fraquezas.length) p.fraquezas = ["Nenhuma Aparente"];
 });
 
@@ -288,7 +288,9 @@ function criarSistemaDuelo(idLuta, idInfo, idResultado, idComparacao, pool) {
     const state = { p1: null, p2: null, escolheu: false };
 
     function poderTotal(p) {
-        return p.forca + p.magia_poder + p.qi + p.qi_batalha + p.exp + p.velocidade + p.resistencia + p.defesa + p.taijutsu + p.ninjutsu + p.genjutsu + p.estamina + p.agilidade + p.carisma + p.furtividade + p.percepcao + p.forca_vontade;
+        const base = p.forca + p.magia_poder + p.qi + p.qi_batalha + p.exp + p.velocidade + p.resistencia + p.defesa + p.taijutsu + p.ninjutsu + p.genjutsu;
+        const derivados = Math.round((p.estamina + p.agilidade + p.carisma + p.furtividade + p.percepcao + p.forca_vontade) * 0.5);
+        return base + derivados;
     }
 
     function statsHTML(p) {
@@ -307,7 +309,7 @@ function criarSistemaDuelo(idLuta, idInfo, idResultado, idComparacao, pool) {
             <span class="pr-stat-label" style="font-weight:700;color:#4f46e5;">Total</span>
             <div class="pr-stat-track"><div class="pr-stat-fill" style="width:${total/170}%;background:linear-gradient(90deg,#6366f1,#8b5cf6);"></div></div>
             <span class="pr-stat-val" style="font-weight:700;color:#4f46e5;">${total}</span>
-        </div>` + 
+        </div>` +
         (() => {
             const mapa = [
                 {key:'forca', nome:'Força Bruta', cor:'#ef4444'},
@@ -350,8 +352,8 @@ function criarSistemaDuelo(idLuta, idInfo, idResultado, idComparacao, pool) {
         state.p2 = pool[idx2];
         state.escolheu = false;
 
-        lutadoresEl.innerHTML = `
-            <div class="pr-lutadores-wrapper">
+        lutadoresEl.innerHTML =
+            `<div class="pr-lutadores-wrapper">
                 <div class="pr-lutador">
                     <div class="pr-nome">${state.p1.nome}</div><div class="pr-serie">${state.p1.serie}</div>
                     <button class="pr-btn-escolha" data-escolha="1">👊 Escolher</button>
@@ -361,8 +363,7 @@ function criarSistemaDuelo(idLuta, idInfo, idResultado, idComparacao, pool) {
                     <div class="pr-nome">${state.p2.nome}</div><div class="pr-serie">${state.p2.serie}</div>
                     <button class="pr-btn-escolha" data-escolha="2">👊 Escolher</button>
                 </div>
-            </div>
-        `;
+            </div>`
 
         lutadoresEl.querySelectorAll(".pr-btn-escolha").forEach(btn => {
             btn.onclick = function () { escolher(parseInt(this.dataset.escolha)); };
@@ -472,8 +473,8 @@ function criarSistemaDuelo(idLuta, idInfo, idResultado, idComparacao, pool) {
 
         infoEl.textContent = `📊 ${state.p1.nome}: ${total1}  VS  ${state.p2.nome}: ${total2}`;
 
-        lutadoresEl.innerHTML = `
-            <div class="pr-lutadores-wrapper">
+        lutadoresEl.innerHTML =
+            `<div class="pr-lutadores-wrapper">
                 <div class="pr-lutador ${escolha === 1 ? (acertou ? 'acertou' : 'errou') : (acertou ? 'revelado' : '')}">
                     <div class="pr-nome">${state.p1.nome}</div><div class="pr-serie">${state.p1.serie}</div>
                     ${statsHTML(state.p1)}
@@ -483,8 +484,7 @@ function criarSistemaDuelo(idLuta, idInfo, idResultado, idComparacao, pool) {
                     <div class="pr-nome">${state.p2.nome}</div><div class="pr-serie">${state.p2.serie}</div>
                     ${statsHTML(state.p2)}
                 </div>
-            </div>
-        `;
+            </div>`
 
         comparacaoEl.innerHTML = compararAtributos(state.p1, state.p2);
 
@@ -510,8 +510,8 @@ let bloqueado = false;
 function sortearPersonagemAlvo() {
     personagemAlvo = personagens[Math.floor(Math.random() * personagens.length)];
 
-    document.getElementById("dicas").innerHTML = `
-        <div class="pr-dica ${personagemAlvo.heroi ? 'pr-sim' : 'pr-nao'}">${personagemAlvo.heroi ? '✅' : '❌'} Herói</div>
+    document.getElementById("dicas").innerHTML =
+        `<div class="pr-dica ${personagemAlvo.heroi ? 'pr-sim' : 'pr-nao'}">${personagemAlvo.heroi ? '✅' : '❌'} Herói</div>
         <div class="pr-dica ${personagemAlvo.vilao ? 'pr-sim' : 'pr-nao'}">${personagemAlvo.vilao ? '✅' : '❌'} Vilão</div>
         <div class="pr-dica ${personagemAlvo.humano ? 'pr-sim' : 'pr-nao'}">${personagemAlvo.humano ? '✅' : '❌'} Humano</div>
         <div class="pr-dica ${personagemAlvo.anime ? 'pr-sim' : 'pr-nao'}">${personagemAlvo.anime ? '✅' : '❌'} Anime/Mangá</div>
@@ -666,4 +666,201 @@ sortearLutaNormal();
 sortearPersonagemAlvo();
 gerarRanking("geral");
 
+// Variable to track current serie filter (for compatibility with existing code)
+let currentSerieFilter = "todos";
 
+// Inicializar seletor de série dinamicamente e integrar com ranking
+function inicializarSerieSelect() {
+    // Extrair séries únicas dos personagens
+    const seriesUnicas = [...new Set(personagens.map(p => p.serie))].sort();
+
+    const serieSelect = document.getElementById('serie-select');
+    if (!serieSelect) return;
+
+    // Adicionar opção "Todos" (já existe no HTML, garantimos aqui)
+    serieSelect.innerHTML = '<option value="todos">Todos</option>';
+
+    // Adicionar opções de séries (excluir "Celebridades" - isso tem filtro próprio)
+    seriesUnicas.forEach(serie => {
+        // Pular se for "Celebridades" - isso tem filtro próprio
+        if (serie === "Celebridades") return;
+        const option = document.createElement('option');
+        option.value = serie;
+        option.textContent = serie;
+        serieSelect.appendChild(option);
+    });
+
+    // Adicionar onchange para filtrar ranking por série
+    serieSelect.addEventListener('change', function() {
+        currentSerieFilter = this.value;
+        gerarRankingAtualizado();
+    });
+}
+
+// Função que gera o ranking considerando o filtro de série atual
+function gerarRankingAtualizado() {
+    // Obter o tipo de ranking selecionado
+    const rankingSelect = document.getElementById('ranking-select');
+    const tipoRanking = rankingSelect ? rankingSelect.value : "geral";
+
+    // Obter filtro de série
+    const serieSelect = document.getElementById('serie-select');
+    const serieFiltro = serieSelect ? serieSelect.value : "todos";
+
+    // Se filtro for "Todos", usar ranking normal
+    if (serieFiltro === "todos") {
+        gerarRanking(tipoRanking);
+        return;
+    }
+
+    // Filtrar personagens da série selecionada
+    const personagensFiltrados = personagens.filter(p => p.serie === serieFiltro);
+
+    if (personagensFiltrados.length === 0) {
+        document.getElementById("ranking-lista").innerHTML = `<div class="pr-ranking-item"><span>Nenhum personagem encontrado</span></div>`;
+        return;
+    }
+
+    // Aplicar a lógica de ranking baseada no tipo, sobre o conjunto filtrado
+    gerarRankingComFiltroDeSerie(tipoRanking, serieFiltro);
+}
+
+// Função principal que gera o ranking com possível filtro de série
+function gerarRankingComFiltroDeSerie(tipo, serieFiltro) {
+    // Se filtro for "Todos", usar o ranking normal
+    if (serieFiltro === "todos") {
+        gerarRanking(tipo);
+        return;
+    }
+
+    // Filtrar personagens da série selecionada
+    const personagensFiltrados = personagens.filter(p => p.serie === serieFiltro);
+
+    if (personagensFiltrados.length === 0) {
+        document.getElementById("ranking-lista").innerHTML = `<div class="pr-ranking-item"><span>Nenhum personagem encontrado</span></div>`;
+        return;
+    }
+
+    // Gerar HTML dos itens do ranking baseada no tipo
+    let items;
+
+    if (tipo === "geral") {
+        const sorted = personagensFiltrados.sort((a, b) => b.popularidade - a.popularidade);
+        items = sorted.map((p, i) =>
+            `<div class="pr-ranking-item">
+                <span class="pr-pos">#${i + 1}</span>
+                <span class="pr-nome-rank">${p.nome}</span>
+                <span class="pr-popularidade-rank">${formatarPopularidade(p.popularidade)}</span>
+            </div>`
+        );
+    } else if (tipo === "ocidente") {
+        const sorted = personagensFiltrados.sort((a, b) => b.ocidente - a.ocidente);
+        items = sorted.map((p, i) =>
+            `<div class="pr-ranking-item">
+                <span class="pr-pos">#${i + 1}</span>
+                <span class="pr-nome-rank">${p.nome}</span>
+                <span class="pr-popularidade-rank">${formatarPopularidade(p.ocidente)}</span>
+            </div>`
+        );
+    } else if (tipo === "oriente") {
+        const sorted = personagensFiltrados.sort((a, b) => b.oriente - a.oriente);
+        items = sorted.map((p, i) =>
+            `<div class="pr-ranking-item">
+                <span class="pr-pos">#${i + 1}</span>
+                <span class="pr-nome-rank">${p.nome}</span>
+                <span class="pr-popularidade-rank">${formatarPopularidade(p.oriente)}</span>
+            </div>`
+        );
+    } else if (tipo === "series") {
+        const seriesObj = {};
+        personagensFiltrados.forEach(p => {
+            if (!seriesObj[p.serie]) seriesObj[p.serie] = { total: 0, count: 0, personagens: [] };
+            seriesObj[p.serie].total += p.popularidade;
+            seriesObj[p.serie].count++;
+            seriesObj[p.serie].personagens.push(p.nome);
+        });
+        const sorted = Object.entries(seriesObj)
+            .map(([nome, dados]) => ({ nome, media: Math.round(dados.total / dados.count), personagens: dados.personagens }))
+            .sort((a, b) => b.media - a.media)
+            .slice(0, 10);
+        items = sorted.map((s, i) =>
+            `<div class="pr-ranking-item" style="flex-wrap:wrap; padding:6px;">
+                <span class="pr-pos">#${i + 1}</span>
+                <span class="pr-nome-rank" style="font-weight:700;">${s.nome}</span>
+                <span class="pr-popularidade-rank">${s.media}</span>
+                <div style="width:100%; font-size:0.55rem; color:var(--text-muted); margin-top:2px; padding-left:22px;">
+                    ${s.personagens.join(', ')}
+                </div>
+            </div>`
+        );
+    } else if (tipo === "animes") {
+        const sorted = personagensFiltrados.filter(p => p.anime).sort((a, b) => b.popularidade - a.popularidade);
+        items = sorted.map((p, i) =>
+            `<div class="pr-ranking-item">
+                <span class="pr-pos">#${i + 1}</span>
+                <span class="pr-nome-rank">${p.nome}</span>
+                <span class="pr-popularidade-rank">${formatarPopularidade(p.popularidade)}</span>
+            </div>`
+        );
+    } else if (tipo === "filmes") {
+        const seriesFilmes = ["Marvel", "DC", "Harry Potter", "Senhor dos Anéis", "Meu Malvado Favorito", "Velozes e Furiosos"];
+        const sorted = personagensFiltrados.filter(p => seriesFilmes.includes(p.serie)).sort((a, b) => b.popularidade - a.popularidade);
+        items = sorted.map((p, i) =>
+            `<div class="pr-ranking-item">
+                <span class="pr-pos">#${i + 1}</span>
+                <span class="pr-nome-rank">${p.nome}</span>
+                <span class="pr-popularidade-rank">${formatarPopularidade(p.popularidade)}</span>
+            </div>`
+        );
+    } else if (tipo === "seriestv") {
+        const seriesTV = ["Gossip Girl", "The Walking Dead", "Supernatural", "Game of Thrones", "You", "The Boys", "Friends", "Riverdale"];
+        const sorted = personagensFiltrados.filter(p => seriesTV.includes(p.serie)).sort((a, b) => b.popularidade - a.popularidade);
+        items = sorted.map((p, i) =>
+            `<div class="pr-ranking-item">
+                <span class="pr-pos">#${i + 1}</span>
+                <span class="pr-nome-rank">${p.nome}</span>
+                <span class="pr-popularidade-rank">${formatarPopularidade(p.popularidade)}</span>
+            </div>`
+        );
+    } else if (tipo === "celebridades") {
+        const sorted = personagensFiltrados.filter(p => p.serie === "Celebridades").sort((a, b) => b.popularidade - a.popularidade);
+        items = sorted.map((p, i) =>
+            `<div class="pr-ranking-item">
+                <span class="pr-pos">#${i + 1}</span>
+                <span class="pr-nome-rank">${p.nome}</span>
+                <span class="pr-popularidade-rank">${formatarPopularidade(p.popularidade)}</span>
+            </div>`
+        );
+    } else {
+        // Default: geral
+        const sorted = personagensFiltrados.sort((a, b) => b.popularidade - a.popularidade);
+        items = sorted.map((p, i) =>
+            `<div class="pr-ranking-item">
+                <span class="pr-pos">#${i + 1}</span>
+                <span class="pr-nome-rank">${p.nome}</span>
+                <span class="pr-popularidade-rank">${formatarPopularidade(p.popularidade)}</span>
+            </div>`
+        );
+    }
+
+    document.getElementById("ranking-lista").innerHTML = items.join("");
+}
+
+// Chamar ao carregar a página
+inicializarSerieSelect();
+
+// Integrar filtro de série com o seleção de ranking existente
+document.addEventListener('DOMContentLoaded', function() {
+    const rankingSelect = document.getElementById('ranking-select');
+    if (rankingSelect) {
+        const originalOnchange = rankingSelect.onchange;
+        rankingSelect.onchange = function(event) {
+            const value = this.value;
+            if (originalOnchange) {
+                originalOnchange(event);
+            }
+            // Atualizar também o filtro de série após mudar o tipo de ranking
+            gerarRankingAtualizado();
+        };
+    }
+});

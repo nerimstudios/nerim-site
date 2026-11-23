@@ -11,18 +11,36 @@ document.addEventListener('DOMContentLoaded', function () {
     window.addEventListener('scroll', onScroll, { passive: true });
 
     if (navToggle && nav) {
+        navToggle.setAttribute('aria-expanded', 'false');
+        navToggle.setAttribute('aria-controls', 'nav');
         navToggle.addEventListener('click', function () {
             nav.classList.toggle('open');
             navToggle.textContent = nav.classList.contains('open') ? '✕' : '☰';
+            navToggle.setAttribute('aria-expanded', nav.classList.contains('open') ? 'true' : 'false');
+            navToggle.setAttribute('aria-label', nav.classList.contains('open') ? 'Fechar menu' : 'Abrir menu');
         });
 
         nav.querySelectorAll('a').forEach(function (link) {
             link.addEventListener('click', function () {
                 nav.classList.remove('open');
                 navToggle.textContent = '☰';
+                navToggle.setAttribute('aria-expanded', 'false');
+                navToggle.setAttribute('aria-label', 'Abrir menu');
             });
         });
     }
+
+    function closeMobileMenu() {
+        if (!nav || !navToggle) return;
+        nav.classList.remove('open');
+        navToggle.textContent = '☰';
+        navToggle.setAttribute('aria-expanded', 'false');
+        navToggle.setAttribute('aria-label', 'Abrir menu');
+    }
+
+    window.addEventListener('resize', function () {
+        if (window.innerWidth > 960) closeMobileMenu();
+    });
 
     var year = document.getElementById('year');
     if (year) year.textContent = new Date().getFullYear();
@@ -69,6 +87,29 @@ function animateCount(el, target) {
         if (progress < 1) requestAnimationFrame(step);
     }
     requestAnimationFrame(step);
+}
+
+function initRevealAnimations(root) {
+    var scope = root || document;
+    var revealEls = scope.querySelectorAll('.reveal');
+
+    if (!('IntersectionObserver' in window)) {
+        revealEls.forEach(function (el) { el.classList.add('visible'); });
+        return;
+    }
+
+    var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+                io.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.12 });
+
+    revealEls.forEach(function (el) {
+        if (!el.classList.contains('visible')) io.observe(el);
+    });
 }
 
 function filtrarProjetos(filtro, botao) {

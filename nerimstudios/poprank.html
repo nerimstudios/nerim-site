@@ -4,6 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="PopRank — rankings e batalhas de popularidade da cultura pop. Personagens de animes, filmes, séries e games.">
+    <meta property="og:title" content="PopRank | Nerimstudios — Cultura Pop">
+    <meta property="og:description" content="PopRank — rankings e batalhas de popularidade da cultura pop. Personagens de animes, filmes, séries e games.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://nerim.com.br/poprank">
+    <meta property="og:image" content="https://nerim.com.br/img/channel-banner.jpg">
+    <meta property="og:locale" content="pt_BR">
     <title>PopRank | Nerimstudios — Cultura Pop</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -14,6 +20,10 @@
     <link rel="icon" type="image/png" sizes="32x32" href="favicon.png">
     <link rel="apple-touch-icon" sizes="180x180" href="favicon.png">
     <meta name="theme-color" content="#08080b">
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="PopRank | Nerimstudios — Cultura Pop">
+    <meta name="twitter:description" content="PopRank — rankings e batalhas de popularidade da cultura pop. Personagens de animes, filmes, séries e games.">
 </head>
 <body>
 
@@ -26,11 +36,15 @@
         <nav class="nav" id="nav">
             <a href="index.html">Início</a>
             <a href="projetos.html">Projetos</a>
-            <a href="poprank.html">PopRank</a>
+            <a href="poprank.html" class="active">PopRank</a>
+            <a href="sobre.html">Sobre</a>
+            <a href="fundador.html">Fundador</a>
+            <a href="index.html#nerim-store">Nerim Store</a>
             <a href="forum.html">Fórum</a>
+            <a href="links.html" class="nav-cta">Links</a>
             <a href="contato.html" class="nav-cta">Fale Conosco</a>
         </nav>
-        <button class="nav-toggle" id="navToggle" aria-label="Abrir menu">☰</button>
+        <button class="nav-toggle" id="navToggle" aria-label="Abrir menu" aria-controls="nav" aria-expanded="false" type="button">☰</button>
     </div>
 </header>
 
@@ -115,10 +129,12 @@
                         <option value="filmes">🎬 Filmes / HQs</option>
                         <option value="seriestv">📺 Séries Live Action</option>
                         <option value="celebridades">🌟 Celebridades</option>
-                    </select>
+</select>
                     <div class="pr-ranking-lista" id="ranking-lista"></div>
+                    <select id="serie-select" class="pr-ranking-select">
+                        <option value="todos">Todos</option>
+                    </select>
                 </div>
-
                 <div class="pr-sidebar-widget">
                     <div class="pr-widget-title">ℹ️ Informações</div>
                     <div class="pr-info-row"><span>Versão</span><span>2.0</span></div>
@@ -154,10 +170,11 @@
         <div class="footer-col">
             <h4>Navegação</h4>
             <a href="index.html">Início</a>
-            <a href="index.html#projetos">Destaques</a>
-            <a href="index.html#sobre">Sobre</a>
+            <a href="sobre.html">Sobre</a>
             <a href="projetos.html">Projetos</a>
             <a href="poprank.html">PopRank</a>
+            <a href="fundador.html">Fundador</a>
+            <a href="index.html#nerim-store">Nerim Store</a>
         </div>
         <div class="footer-col">
             <h4>Contato</h4>

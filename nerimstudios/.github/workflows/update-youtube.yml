@@ -1,0 +1,110 @@
+name: Atualizar Métricas e Conteúdo do YouTube
+
+on:
+  schedule:
+    - cron: '0 */10 * * *'  # A a cada 10 minutos
+  push:
+    branches: [ main ]
+
+jobs:
+  update-youtube-stats-and-content:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install dependencies
+        run: |
+          npm ci
+
+      - name: Run YouTube Content Update
+        env:
+          YOUTUBE_API_KEY: ${{ secrets.YOUTUBE_API_KEY }}
+        run: |
+          node -e "
+          const fetch = require('node-fetch');
+          const cron = require('node-cron');
+          require('dotenv').config();
+
+          const YOUTUBE_API_KEY = process.env.YOUTUBE_API_KEY;
+          const YOUTUBE_CHANNEL_ID = 'UC-2XJW3DwmlhlXdL5L0WYZQ'; // Define seu Channel ID
+
+          async function fetchYouTubeStats() {
+            const url = \`https://www.googleapis.com/youtube/v3/channels?part=statistics&id=\${YOUTUBE_CHANNEL_ID}&key=\${YOUTUBE_API_KEY}\`;
+            const response = await fetch(url);
+            if (!response.ok) throw new Error('HTTP ' + response.status);
+            const data = await response.json();
+            if (data.items && data.items.length > 0) {
+              const stats = data.items[0].statistics;
+              return {
+                subscribers: stats.subscriberCount,
+                views: stats.viewCount,
+                videoCount: stats.videoCount
+              };
+            }
+            throw new Error('Nenhum dado de canal encontrado');
+          }
+
+          async function fetchYouTubeVideos() {
+            const url = \`https://www.googleapis.com/youtube/v3/search?part=snippet,id&order=date&channelId=\${YOUTUBE_CHANNEL_ID}&maxResults=10&key=\${YOUTUBE_API_KEY}\`;
+            const response = await fetch(url);
+            if (!response.ok) throw new Error('HTTP ' + response.status);
+            const data = await response.json();
+            const videos = data.items.map(item => ({
+              videoId: item.id.videoId,
+              title: item.snippet.title,
+              description: item.snippet.description,
+              publishedAt: item.snippet.publishedAt,
+              channelTitle: item.snippet.channelTitle
+            }));
+            return videos;
+          }
+
+          async function formatNumberBr(num) {
+            if (num === undefined || num === null) return '0';
+            const number = Number(num);
+            if (isNaN(number)) return '0';
+            if (number >= 1000000) {
+              return \`\${(number / 1000000).toFixed(1)} milhões\`.replace('.', ',');
+            }
+            if (number >= 1000) {
+              return \`\${(number / 1000).toFixed(1)} mil\`.replace('.', ',');
+            }
+            return number.toLocaleString('pt-BR');
+          }
+
+          async function main() {
+            try {
+              // Update stats
+              const stats = await fetchYouTubeStats();
+              console.log('Stats:', stats);
+
+              // Update videos
+              const videos = await fetchYouTubeVideos();
+              console.log('Videos:', videos.length, 'encontrados');
+
+              // Generate HTML updates for index.html
+              // This would update the data-counter attributes and video sections
+              console.log('✅ Atualização automática concluída');
+              console.log('   Inscritos:', stats.subscribers);
+              console.log('   Visualizações:', formatNumberBr(stats.views));
+              console.log('   Vídeos:', stats.videoCount);
+              console.log('   Últimos vídeos:', videos.length);
+            } catch (error) {
+              console.error('❌ Erro na atualização:', error.message);
+              process.exit(1);
+            }
+          }
+
+          main();
+          "

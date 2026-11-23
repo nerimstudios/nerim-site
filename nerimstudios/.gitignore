@@ -1,0 +1,24 @@
+# Credenciais e configuracoes locais
+.env
+.env.*
+!.env.example
+
+# Dependencias Node
+node_modules/
+**/node_modules/
+
+# Logs e saidas geradas
+*.log
+npm-debug.log*
+yarn-debug.log*
+pnpm-debug.log*
+coverage/
+dist/
+build/
+
+# Arquivos locais do sistema
+.DS_Store
+Thumbs.db
+
+# Ferramentas locais
+.kilo/

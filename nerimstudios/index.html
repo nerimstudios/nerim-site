@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Nerimstudios — Estúdio de cultura pop criando vídeos, animações, jogos e conteúdo sobre os universos que você ama.">
-    <title>Nerimstudios | Cultura Pop e Entretenimento</title>
+    <meta name="description" content="Nerim Studios é uma organização independente de mídia e entretenimento dedicada à cultura pop, projetos próprios e expansão multiplataforma.">
+    <title>Nerim Studios | Organização de Cultura Pop e Entretenimento</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -13,6 +13,54 @@
     <link rel="icon" type="image/png" sizes="32x32" href="favicon.png">
     <link rel="apple-touch-icon" sizes="180x180" href="favicon.png">
     <meta name="theme-color" content="#08080b">
+    <link rel="canonical" href="https://www.nerim.com.br/">
+    <meta property="og:locale" content="pt_BR">
+    <meta property="og:image" content="https://www.nerim.com.br/img/channel-banner.jpg">
+    <meta name="twitter:image" content="https://www.nerim.com.br/img/channel-banner.jpg">
+    <script type="application/ld+json">
+    [
+        {
+            "@context": "https://schema.org",
+            "@type": "Organization",
+            "@id": "https://www.nerim.com.br/#organization",
+            "name": "Nerim Studios",
+            "url": "https://www.nerim.com.br",
+            "logo": "https://www.nerim.com.br/img/channel-avatar.jpg",
+            "description": "Organização independente de mídia e entretenimento digital dedicada à cultura pop.",
+            "foundingDate": "2026-07-29",
+            "founder": {
+                "@id": "https://www.nerim.com.br/fundador.html#person"
+            },
+            "sameAs": [
+                "https://www.instagram.com/nerimstudios",
+                "https://www.youtube.com/@nerimstudios",
+                "https://www.tiktok.com/@nerimstudios",
+                "https://kwai.com/@nerimstudios"
+            ]
+        },
+        {
+            "@context": "https://schema.org",
+            "@type": "Person",
+            "@id": "https://www.nerim.com.br/fundador.html#person",
+            "name": "Gustavo Ferreira Santos",
+            "jobTitle": "Fundador e CEO da Nerim Studios",
+            "image": "https://www.nerim.com.br/img/gustavo-ferreira-santos.jpg",
+            "worksFor": {
+                "@id": "https://www.nerim.com.br/#organization"
+            },
+            "url": "https://www.nerim.com.br/fundador.html"
+        }
+    ]
+    </script>
+    <!-- Open Graph -->
+    <meta property="og:title" content="Nerim Studios | Organização de Cultura Pop e Entretenimento">
+    <meta property="og:description" content="Organização independente de mídia e entretenimento dedicada à cultura pop, projetos próprios e expansão multiplataforma.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.nerim.com.br">
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Nerim Studios | Organização de Cultura Pop e Entretenimento">
+    <meta name="twitter:description" content="Organização independente de mídia e entretenimento dedicada à cultura pop, projetos próprios e expansão multiplataforma.">
 </head>
 <body>
 
@@ -26,43 +74,134 @@
             <a href="index.html" class="active">Início</a>
             <a href="projetos.html">Projetos</a>
             <a href="poprank.html">PopRank</a>
-            <a href="index.html#games">Games</a>
+            <a href="sobre.html">Sobre</a>
+            <a href="fundador.html">Fundador</a>
+            <a href="#nerim-store">Nerim Store</a>
             <a href="forum.html">Fórum</a>
             <a href="links.html" class="nav-cta">Links</a>
             <a href="contato.html" class="nav-cta">Fale Conosco</a>
         </nav>
-        <button class="nav-toggle" id="navToggle" aria-label="Abrir menu">☰</button>
+        <button class="nav-toggle" id="navToggle" aria-label="Abrir menu" aria-controls="nav" aria-expanded="false" type="button">☰</button>
     </div>
 </header>
 
+<main>
+<!-- Hero Section -->
 <section class="hero">
     <div class="hero-bg">
         <img src="img/channel-banner.jpg" alt="">
     </div>
     <div class="container">
-        <span class="hero-badge"><span class="dot"></span> Cultura pop, histórias e universos incríveis</span>
-        <h1>Heróis, animes, filmes e <span class="grad">games</span></h1>
-        <p>Bem-vindo à Nerimstudios. Criamos vídeos sobre os personagens e universos que marcam gerações — de Goku ao Homem-Aranha, da Fênix ao Gigante Esmeralda.</p>
-        <div class="hero-actions">
-            <a href="#conteudo" class="btn btn-primary">Explorar conteúdo →</a>
-            <a href="links.html" class="btn btn-primary" style="margin-left: 14px;">Achados da Nerim →</a>
-            <a href="https://www.youtube.com/@nerimstudios" target="_blank" rel="noopener" class="btn btn-ghost">Abrir canal no YouTube</a>
+        <div class="hero-content">
+            <span class="hero-badge"><span class="dot"></span> Organização independente de mídia e entretenimento</span>
+            <h1>Uma organização em desenvolvimento, impulsionada por <span class="grad">universos</span> e ideias próprias.</h1>
+            <p>A Nerim Studios cria uma plataforma independente de cultura pop, com projetos próprios, conteúdo multiplataforma e visão de expansão para novos segmentos de entretenimento e tecnologia.</p>
+            <div class="hero-actions">
+                <a href="sobre.html" class="btn btn-primary">Conhecer a Nerim Studios →</a>
+                <a href="https://www.youtube.com/@nerimstudios" target="_blank" rel="noopener" class="btn btn-ghost">Abrir canal no YouTube</a>
+            </div>
         </div>
     </div>
 </section>
 
+<!-- Apresentação institucional -->
+<section class="section" id="institucional">
+    <div class="container">
+        <div class="institutional-intro reveal">
+            <article class="institutional-copy">
+                <span class="section-eyebrow">Organização independente</span>
+                <h2>Nerim Studios</h2>
+                <p>A Nerim Studios é uma organização independente de mídia e entretenimento em desenvolvimento, criada para construir projetos próprios conectados à cultura pop, tecnologia e novas experiências digitais.</p>
+                <p>Nossa identidade combina conteúdo, comunidade e visão empresarial de longo prazo. O YouTube é uma das plataformas de divulgação, não o conjunto completo da organização.</p>
+                <a href="sobre.html" class="btn btn-primary">Conhecer nossa visão →</a>
+            </article>
+            <aside class="institutional-aside" aria-label="Propósito da Nerim">
+                <strong>29/07</strong>
+                <span>Origem da Nerim Studios em 29 de julho de 2026</span>
+            </aside>
+        </div>
+        <article class="founder-card reveal" style="margin-top:24px;">
+            <div class="founder-photo">
+                <img src="img/gustavo-ferreira-santos.jpg" alt="Gustavo Ferreira Santos, fundador e CEO da Nerim Studios" width="768" height="1359" style="object-position:center 28%;">
+            </div>
+            <div class="founder-content">
+                <span class="section-eyebrow">Liderança</span>
+                <h3>Gustavo Ferreira Santos</h3>
+                <p class="founder-role">Fundador e CEO da Nerim Studios</p>
+                <p>Gustavo lidera o desenvolvimento da organização e a construção de uma marca independente, com identidade própria e capacidade de expandir seus projetos ao longo do tempo.</p>
+                <a href="fundador.html" class="btn btn-primary">Conhecer o fundador →</a>
+            </div>
+        </article>
+    </div>
+</section>
+
+<!-- Indicadores Section -->
+<section class="section" id="indicadores">
+    <div class="container">
+        <div class="section-header reveal">
+            <span class="section-eyebrow">Números</span>
+            <h2>Presença da Nerim</h2>
+            <p>Indicadores do canal e redes</p>
+        </div>
+        <div class="stats-band reveal">
+            <div>
+                <div class="stat-value" id="stat-videos">0</div>
+                <div class="stat-label">Vídeos publicados</div>
+            </div>
+            <div>
+                <div class="stat-value" id="stat-inscritos">0</div>
+                <div class="stat-label">Inscritos no YouTube</div>
+            </div>
+            <div>
+                <div class="stat-value" id="stat-visualizacoes">0</div>
+                <div class="stat-label">Visualizações acumuladas</div>
+            </div>
+            <div>
+                <div class="stat-value" id="stat-marcas">3</div>
+                <div class="stat-label">Plataformas</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Conteúdos Section -->
 <section class="section" id="conteudo">
     <div class="container">
         <div class="section-header reveal">
             <span class="section-eyebrow">Destaques</span>
             <h2>Conteúdo em destaque</h2>
-            <p>Videos recentes do canal YouTube.</p>
+            <p>Editoriais, teorias e curiosidades da cultura pop — ideias que representam a linha editorial da Nerim.</p>
+        </div>
+        <div class="editorial-grid reveal">
+            <article class="editorial-card">
+                <span>Série editorial</span>
+                <h3>E se Gohan fosse o protagonista?</h3>
+                <p>Uma chamada de conteúdo sobre caminhos alternativos, poderes e escolhas em Dragon Ball.</p>
+            </article>
+            <article class="editorial-card">
+                <span>Comparações</span>
+                <h3>Quem seria o maior prodígio de Cobra Kai?</h3>
+                <p>Personagens, técnicas e decisões em um universo de rivalidades e evolução.</p>
+            </article>
+            <article class="editorial-card">
+                <span>Poderes</span>
+                <h3>Personagens que mudaram seus universos</h3>
+                <p>Curiosidades sobre protagonistas, antagonistas e poderes que definiram animes e HQs.</p>
+            </article>
+            <article class="editorial-card">
+                <span>Teorias</span>
+                <h3>Filmes, séries e universos em debate</h3>
+                <p>Comparações, fatos curiosos e teorias sobre personagens do entretenimento.</p>
+            </article>
+        </div>
+        <div style="text-align:center;margin:28px 0 36px;">
+            <a href="https://www.youtube.com/@nerimstudios" target="_blank" rel="noopener" class="btn btn-ghost">Conhecer o canal no YouTube</a>
         </div>
         <div class="grid-3">
             <!-- Featured video will be injected here by JavaScript -->
             <div id="featured-video" class="portfolio-card reveal">
                 <div class="portfolio-cover cover-purple">
-                    <img src="https://i.ytimg.com/vi/ placeholder/hqdefault.jpg" alt="Vídeo em destaque" loading="lazy">
+                    <img src="https://i.ytimg.com/vi/default/hqdefault.jpg" alt="Vídeo em destaque" loading="lazy">
                     <span class="play-badge">▶</span>
                     <span class="cover-status">Carregando...</span>
                 </div>
@@ -84,47 +223,218 @@
     </div>
 </section>
 
-<section class="section">
-    <div class="container">
-        <div class="stats-band reveal">
-            <div>
-                <div class="stat-value" id="stat-videos">0</div>
-                <div class="stat-label">Vídeos publicados</div>
-            </div>
-            <div>
-                <div class="stat-value" id="stat-inscritos">0</div>
-                <div class="stat-label">Inscritos no canal</div>
-            </div>
-            <div>
-                <div class="stat-value" id="stat-visualizacoes">0</div>
-                <div class="stat-label">Visualizações</div>
-            </div>
-            <div>
-                <div class="stat-value" id="stat-paixao">100</div>
-                <div class="stat-label">% Paixão</div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<section class="section" id="videos">
+<!-- Projetos Section -->
+<section class="section" id="projetos">
     <div class="container">
         <div class="section-header reveal">
-            <span class="section-eyebrow">Últimos vídeos</span>
-            <h2>O que acabou de sair</h2>
-            <p>Fique por dentro dos vídeos mais recentes do canal.</p>
+            <span class="section-eyebrow">Projetos</span>
+            <h2>Nossas iniciativas</h2>
+            <p>Confira os projetos da Nerim Studios.</p>
         </div>
         <div class="grid-3">
-            <!-- Recent videos will be injected here -->
-            <div id="home-videos" class="reveal">
-                <!-- Videos generated by JS -->
+            <!-- PopRank card -->
+            <div class="portfolio-card reveal" style="background: var(--bg-card); border-color: var(--border);">
+                <div class="portfolio-cover cover-purple" style="height: 220px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
+                    <div style="position: absolute; top: 20px; left: 20px; background: rgba(0,0,0,0.6); color: #f5f5f7; padding: 8px 14px; border-radius: 20px; font-size: 0.68rem; font-weight: 700;">
+                        PopRank
+                    </div>
+                    <span class="play-badge" style="bottom: 20px; left: 20px;">⚡</span>
+                    <span class="cover-status" style="bottom: 20px; right: 20px;">Batalhas</span>
+                </div>
+                <div class="portfolio-body" style="padding: 24px;">
+                    <h3 style="font-size: 1.25rem; margin-bottom: 8px;">Batalhas de Popularidade</h3>
+                    <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 16px;">Rankings e batalhas entre personagens de animes, filmes, séries e games.</p>
+                    <a href="poprank.html" target="_blank" rel="noopener" style="color: var(--text); font-weight: 600; text-decoration: underline;">Ver PopRank →</a>
+                </div>
+            </div>
+
+            <!-- Games card -->
+            <div class="portfolio-card reveal" style="background: var(--bg-card); border-color: var(--border);">
+                <div class="portfolio-cover" style="height: 220px; background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);">
+                    <div style="position: absolute; top: 20px; left: 20px; background: rgba(0,0,0,0.6); color: #f5f5f7; padding: 8px 14px; border-radius: 20px; font-size: 0.68rem; font-weight: 700;">
+                        Games
+                    </div>
+                    <span class="play-badge" style="bottom: 20px; left: 20px;">▶</span>
+                    <span class="cover-status" style="bottom: 20px; right: 20px;">Disponível</span>
+                </div>
+                <div class="portfolio-body" style="padding: 24px;">
+                    <h3 style="font-size: 1.25rem; margin-bottom: 8px;">Conteúdo Games</h3>
+                    <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 16px;">Vídeos e análises sobre jogos da cultura pop.</p>
+                    <a href="projetos.html" style="color: var(--text); font-weight: 600; text-decoration: underline;">Ver projetos →</a>
+                </div>
+            </div>
+
+            <!-- Animação card -->
+            <div class="portfolio-card reveal" style="background: var(--bg-card); border-color: var(--border);">
+                <div class="portfolio-cover" style="height: 220px; background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);">
+                    <div style="position: absolute; top: 20px; left: 20px; background: rgba(0,0,0,0.6); color: #f5f5f7; padding: 8px 14px; border-radius: 20px; font-size: 0.68rem; font-weight: 700;">
+                        Animação
+                    </div>
+                    <span class="play-badge" style="bottom: 20px; left: 20px;">✨</span>
+                    <span class="cover-status" style="bottom: 20px; right: 20px;">Em produção</span>
+                </div>
+                <div class="portfolio-body" style="padding: 24px;">
+                    <h3 style="font-size: 1.25rem; margin-bottom: 8px;">Projetos de Animação</h3>
+                    <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 16px;">Animações originais e participações especiais.</p>
+                    <a href="projetos.html" style="color: var(--text); font-weight: 600; text-decoration: underline;">Ver projetos →</a>
+                </div>
             </div>
         </div>
     </div>
 </section>
 
+<!-- Sobre a Nerim Section -->
+<section class="section" id="sobre">
+    <div class="container">
+        <div class="section-header reveal">
+            <span class="section-eyebrow">Nerim Studios</span>
+            <h2>Sobre a Marca</h2>
+        </div>
+        <div class="row-reveal reveal">
+            <div class="col-about">
+                <h3>Entretenimento e Cultura Pop</h3>
+                <p>A Nerim Studios é uma organização independente de mídia e entretenimento que conecta cultura pop, personagens e universos por meio de conteúdo digital e projetos próprios.</p>
+                <p>A Nerim desenvolve iniciativas como o PopRank e mantém planos de expansão com base em identidade própria, novas plataformas e áreas futuras de atuação.</p>
+            </div>
+            <div class="cta-about">
+                <h3>Explore mais</h3>
+                <a href="projetos.html" class="btn btn-primary">Ver Todos os Projetos →</a>
+                <a href="contato.html" class="btn btn-ghost">Fale Conosco →</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Nerim Store Section -->
+<section class="section" id="nerim-store">
+    <div class="container">
+        <article class="nerim-store" id="nerim-store-card">
+            <div class="nerim-store-copy">
+                <span class="section-eyebrow">Frente comercial</span>
+                <h2>Nerim Store</h2>
+                <p class="nerim-store-lead">Recomendações e produtos selecionados pela Nerim.</p>
+                <p>Um espaço com produtos e recomendações disponíveis no Mercado Livre, reunidos na página oficial da Nerim Store.</p>
+                <p class="affiliate-disclosure">Alguns links podem ser de afiliados. A Nerim pode receber uma comissão por compras realizadas por meio desses links, sem custo adicional para você.</p>
+                <a href="https://www.mercadolivre.com.br/social/ne20260921183412506"
+                   target="_blank"
+                   rel="noopener noreferrer"
+                   class="btn btn-primary"
+                   aria-label="Acessar a Nerim Store no Mercado Livre (abre em nova aba)">
+                    Acessar Nerim Store →
+                </a>
+            </div>
+            <aside class="nerim-store-mark" aria-label="Nerim Store no Mercado Livre">
+                <span>Nerim</span>
+                <strong>Store</strong>
+                <small>Mercado Livre</small>
+            </aside>
+        </article>
+        <div class="store-category-grid">
+            <article class="store-category-card">
+                <span class="store-category-icon" aria-hidden="true">📚</span>
+                <h3>Mangás</h3>
+                <p>Obras japonesas, coleções e volumes especiais para acompanhar universos em continuidade.</p>
+            </article>
+            <article class="store-category-card">
+                <span class="store-category-icon" aria-hidden="true">📖</span>
+                <h3>Livros</h3>
+                <p>Fantasia, ficção, conhecimento e cultura geek em recomendações selecionadas.</p>
+            </article>
+            <article class="store-category-card">
+                <span class="store-category-icon" aria-hidden="true">🧸</span>
+                <h3>Bonecos e colecionáveis</h3>
+                <p>Personagens, miniaturas e itens de coleção ligados a universos favoritos.</p>
+            </article>
+            <article class="store-category-card">
+                <span class="store-category-icon" aria-hidden="true">🦸</span>
+                <h3>Action Figures</h3>
+                <p>Personagens de animes, filmes, séries e games em formato colecionável.</p>
+            </article>
+            <article class="store-category-card">
+                <span class="store-category-icon" aria-hidden="true">👕</span>
+                <h3>Roupas Geek</h3>
+                <p>Camisetas, moletons e acessórios temáticos para representar suas histórias preferidas.</p>
+            </article>
+            <article class="store-category-card">
+                <span class="store-category-icon" aria-hidden="true">🎮</span>
+                <h3>Games e acessórios</h3>
+                <p>Produtos relacionados ao universo dos jogos e à experiência de jogar.</p>
+            </article>
+            <article class="store-category-card">
+                <span class="store-category-icon" aria-hidden="true">🌟</span>
+                <h3>Cultura Pop</h3>
+                <p>Produtos ligados a filmes, séries, super-heróis, animações e entretenimento.</p>
+            </article>
+        </div>
+    </div>
+</section>
+
+<!-- Redes Sociais Section -->
+<section class="section" id="redes-sociais">
+    <div class="container">
+        <div class="section-header reveal">
+            <span class="section-eyebrow">Redes Sociais</span>
+            <h2>Siga a Nerim Studios</h2>
+        </div>
+        <div class="social-links">
+            <a href="https://www.instagram.com/nerimstudios" target="_blank" rel="noopener" class="social-btn">
+                <span class="social-icon">📷</span>
+                <span class="social-label">Instagram</span>
+            </a>
+            <a href="https://www.youtube.com/@nerimstudios" target="_blank" rel="noopener" class="social-btn">
+                <span class="social-icon">▶️</span>
+                <span class="social-label">YouTube</span>
+            </a>
+            <a href="https://www.tiktok.com/@nerimstudios" target="_blank" rel="noopener" class="social-btn">
+                <span class="social-icon">⚡</span>
+                <span class="social-label">TikTok</span>
+            </a>
+            <a href="https://kwai.com/@nerimstudios" target="_blank" rel="noopener" class="social-btn">
+                <span class="social-icon">🔥</span>
+                <span class="social-label">Kwai</span>
+            </a>
+        </div>
+    </div>
+</section>
+
+</main>
+<!-- Footer -->
+<footer class="site-footer">
+    <div class="footer-inner">
+        <div class="footer-brand">
+            <a href="index.html" class="logo">
+                <div class="logo-mark"><img src="img/channel-avatar.jpg" alt="Logo Nerimstudios"></div>
+                <div class="logo-name"><span>Nerim</span>studios</div>
+            </a>
+            <p>Estúdio de cultura pop criando vídeos, animações, jogos e conteúdo sobre os universos que você ama.</p>
+        </div>
+        <div class="footer-col">
+            <h4>Navegação</h4>
+            <a href="index.html">Início</a>
+            <a href="projetos.html">Projetos</a>
+            <a href="poprank.html">PopRank</a>
+            <a href="sobre.html">Sobre</a>
+        </div>
+        <div class="footer-col">
+            <h4>Comunidade</h4>
+            <a href="forum.html">Fórum</a>
+            <a href="contato.html">Fale Conosco</a>
+        </div>
+        <div class="footer-col">
+            <h4>Redes Sociais</h4>
+            <a href="https://www.instagram.com/nerimstudios" target="_blank" rel="noopener">Instagram</a>
+            <a href="https://www.youtube.com/@nerimstudios" target="_blank" rel="noopener">YouTube</a>
+            <a href="https://www.tiktok.com/@nerimstudios" target="_blank" rel="noopener">TikTok</a>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <span>© <span id="year"></span> Nerimstudios. Todos os direitos reservados.</span>
+        <span>Feito com 💜</span>
+    </div>
+</footer>
+
 <script>
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     // Format number in Brazilian format
     const formatNumberBr = (num) => {
       if (num === undefined || num === null) return '0';
@@ -140,7 +450,8 @@ document.addEventListener('DOMContentLoaded', function() {
     };
     
     // Fetch YouTube data from backend
-    const backendBase = 'http://localhost:3000';
+    const isLocal = ['localhost', '127.0.0.1', '[::1]'].includes(window.location.hostname) || window.location.hostname.endsWith('.test');
+    const backendBase = isLocal ? 'http://localhost:3000' : '';
 
     // Fetch channel stats
     async function fetchStats() {
@@ -157,10 +468,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 if (statInscritos) statInscritos.textContent = formatNumberBr(data.data.subscribers);
                 if (statVisualizacoes) statVisualizacoes.textContent = formatNumberBr(data.data.views);
                 
-                // Update the % Paixão (keep as is or set to a default)
-                const statPaixao = document.getElementById('stat-paixao');
-                if (statPaixao) statPaixao.textContent = '100';
-
                 // Format and display
                 console.log('📊 Stats atualizadas:', data.data);
             }
@@ -168,7 +475,14 @@ document.addEventListener('DOMContentLoaded', function() {
                 console.log('📊 Dados de stats vindo do cache');
             }
         } catch (error) {
-            console.error('❌ Erro ao buscar stats:', error.message);
+            // Show elegant fallback when API is unavailable
+            console.warn('⚠️  YouTube API indisponível - mostrando estado alternativo');
+            const statVideos = document.getElementById('stat-videos');
+            const statInscritos = document.getElementById('stat-inscritos');
+            const statVisualizacoes = document.getElementById('stat-visualizacoes');
+            if (statVideos) statVideos.textContent = '—';
+            if (statInscritos) statInscritos.textContent = '—';
+            if (statVisualizacoes) statVisualizacoes.textContent = '—';
         }
     }
 
@@ -200,7 +514,19 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
             }
         } catch (error) {
-            console.error('❌ Erro ao buscar vídeo destaque:', error.message);
+            // Show elegant fallback when API is unavailable
+            console.warn('⚠️  YouTube API indisponível - vídeo destaque alternativo');
+            const featured = document.getElementById('featured-video');
+            featured.innerHTML = `
+                <div class="portfolio-cover cover-purple" style="height: 200px;">
+                    <span class="play-badge" style="bottom: 14px; left: 14px; font-size: 1.1rem;">▶</span>
+                    <span class="cover-status" style="bottom: 14px; right: 14px;">Indisponível</span>
+                </div>
+                <div class="portfolio-body" style="padding: 24px;">
+                    <h3 style="font-size: 1.15rem; margin-bottom: 8px;">Vídeo em destaque</h3>
+                    <p style="color: var(--text-muted); font-size: 0.9rem;">Conteúdo temporariamente indisponível</p>
+                </div>
+            `;
         }
     }
 

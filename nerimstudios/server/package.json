@@ -1,0 +1,20 @@
+{
+  "name": "nerimstudios-server",
+  "version": "1.0.0",
+  "description": "Nerimstudios backend - YouTube API proxy and caching",
+  "main": "index.js",
+  "engines": {
+    "node": ">=24 <25"
+  },
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "node-cron": "^3.0.3",
+    "node-fetch": "^3.3.2"
+  }
+}

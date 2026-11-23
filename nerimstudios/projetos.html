@@ -13,6 +13,19 @@
     <link rel="icon" type="image/png" sizes="32x32" href="favicon.png">
     <link rel="apple-touch-icon" sizes="180x180" href="favicon.png">
     <meta name="theme-color" content="#08080b">
+    <meta property="og:locale" content="pt_BR">
+    <link rel="canonical" href="https://www.nerim.com.br/projetos.html">
+    <!-- Open Graph -->
+    <meta property="og:title" content="Projetos | Nerimstudios — Cultura Pop">
+    <meta property="og:description" content="Projetos da Nerimstudios — vídeos sobre Goku, Homem-Aranha, Hulk, Jean Grey e muito mais da cultura pop.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.nerim.com.br/projetos.html">
+    <meta property="og:image" content="https://www.nerim.com.br/img/channel-banner.jpg">
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Projetos | Nerimstudios — Cultura Pop">
+    <meta name="twitter:description" content="Projetos da Nerimstudios — vídeos sobre Goku, Homem-Aranha, Hulk, Jean Grey e muito mais da cultura pop.">
+    <meta name="twitter:image" content="https://www.nerim.com.br/img/channel-banner.jpg">
 </head>
 <body>
 
@@ -26,10 +39,14 @@
             <a href="index.html">Início</a>
             <a href="projetos.html" class="active">Projetos</a>
             <a href="poprank.html">PopRank</a>
+            <a href="sobre.html">Sobre</a>
+            <a href="fundador.html">Fundador</a>
+            <a href="index.html#nerim-store">Nerim Store</a>
             <a href="forum.html">Fórum</a>
+            <a href="links.html" class="nav-cta">Links</a>
             <a href="contato.html" class="nav-cta">Fale Conosco</a>
         </nav>
-        <button class="nav-toggle" id="navToggle" aria-label="Abrir menu">☰</button>
+        <button class="nav-toggle" id="navToggle" aria-label="Abrir menu" aria-controls="nav" aria-expanded="false" type="button">☰</button>
     </div>
 </header>
 
@@ -40,151 +57,21 @@
     </div>
 </section>
 
+<main>
 <section class="section" style="padding-top:20px;">
     <div class="container">
-        <div class="filters">
-            <button class="filter-btn active" onclick="filtrarProjetos('todos', this)">Todos</button>
-            <button class="filter-btn" onclick="filtrarProjetos('videos', this)">🎬 Vídeos</button>
-            <button class="filter-btn" onclick="filtrarProjetos('games', this)">🎮 Games</button>
-            <button class="filter-btn" onclick="filtrarProjetos('animacao', this)">🎨 Animação</button>
-            <button class="filter-btn" onclick="filtrarProjetos('musica', this)">🎵 Música</button>
+        <div class="filters" role="toolbar" aria-label="Filtrar projetos">
+            <button type="button" class="filter-btn active" data-filter="todos" aria-pressed="true">Todos</button>
+            <button type="button" class="filter-btn" data-filter="videos" aria-pressed="false">Vídeos</button>
+            <button type="button" class="filter-btn" data-filter="games" aria-pressed="false">Games</button>
+            <button type="button" class="filter-btn" data-filter="animacao" aria-pressed="false">Animação</button>
+            <button type="button" class="filter-btn" data-filter="musica" aria-pressed="false">Música</button>
         </div>
-
-        <div class="grid-3">
-            <a href="https://www.youtube.com/watch?v=iZQ0M8-nXhY" target="_blank" rel="noopener" class="portfolio-card reveal" data-category="videos">
-                <div class="portfolio-cover cover-purple">
-                    <img src="https://i.ytimg.com/vi/iZQ0M8-nXhY/hqdefault.jpg" alt="05 Curiosidades sobre o Goku" loading="lazy">
-                    <span class="play-badge">▶</span>
-                    <span class="cover-status">Disponível</span>
-                </div>
-                <div class="portfolio-body">
-                    <div class="card-tag"><span class="tag">Vídeos</span></div>
-                    <h3>05 Curiosidades sobre o Goku</h3>
-                    <p>Fatos e segredos sobre o Saiyajin mais famoso dos animes, da origem à transformação lendária.</p>
-                    <div class="portfolio-meta">
-                        <span>🎥 YouTube</span>
-                        <span class="status-live">Assistir →</span>
-                    </div>
-                </div>
-            </a>
-
-            <a href="https://www.youtube.com/shorts/lD04QvAySU4" target="_blank" rel="noopener" class="portfolio-card reveal" data-category="videos">
-                <div class="portfolio-cover cover-pink">
-                    <img src="https://i.ytimg.com/vi/lD04QvAySU4/hqdefault.jpg" alt="O maior erro sobre o Homem-Aranha" loading="lazy">
-                    <span class="play-badge">▶</span>
-                    <span class="cover-status">Disponível</span>
-                </div>
-                <div class="portfolio-body">
-                    <div class="card-tag"><span class="tag pink">Vídeos</span></div>
-                    <h3>O maior erro sobre o Homem-Aranha</h3>
-                    <p>Com poder também vem responsabilidade. O que muita gente erra sobre o herói da vizinhança.</p>
-                    <div class="portfolio-meta">
-                        <span>🎥 YouTube</span>
-                        <span class="status-live">Assistir →</span>
-                    </div>
-                </div>
-            </a>
-
-            <a href="https://www.youtube.com/shorts/_QfUJ1dTDa0" target="_blank" rel="noopener" class="portfolio-card reveal" data-category="videos">
-                <div class="portfolio-cover cover-cyan">
-                    <img src="https://i.ytimg.com/vi/_QfUJ1dTDa0/hqdefault.jpg" alt="O Hulk é praticamente impossível de derrotar..." loading="lazy">
-                    <span class="play-badge">▶</span>
-                    <span class="cover-status">Disponível</span>
-                </div>
-                <div class="portfolio-body">
-                    <div class="card-tag"><span class="tag cyan">Vídeos</span></div>
-                    <h3>O Hulk é praticamente impossível de derrotar...</h3>
-                    <p>Quanto mais forte o Hulk fica, mais difícil se torna vencê-lo. Entenda a fúria esmeralda.</p>
-                    <div class="portfolio-meta">
-                        <span>🎥 YouTube</span>
-                        <span class="status-live">Assistir →</span>
-                    </div>
-                </div>
-            </a>
-
-            <a href="https://www.youtube.com/shorts/m_wbesWmEYM" target="_blank" rel="noopener" class="portfolio-card reveal" data-category="videos">
-                <div class="portfolio-cover cover-amber">
-                    <img src="https://i.ytimg.com/vi/m_wbesWmEYM/hqdefault.jpg" alt="A mutante mais poderosa da Marvel" loading="lazy">
-                    <span class="play-badge">▶</span>
-                    <span class="cover-status">Disponível</span>
-                </div>
-                <div class="portfolio-body">
-                    <div class="card-tag"><span class="tag amber">Vídeos</span></div>
-                    <h3>A mutante mais poderosa da Marvel</h3>
-                    <p>Conheça a Fênix e descubra por que Jean Grey carrega o título de mutante mais poderosa.</p>
-                    <div class="portfolio-meta">
-                        <span>🎥 YouTube</span>
-                        <span class="status-live">Assistir →</span>
-                    </div>
-                </div>
-            </a>
-
-            <!-- Novo card: Games -->
-            <a href="https://www.youtube.com/watch?v=6J_LEFkAxEw" target="_blank" rel="noopener" class="portfolio-card reveal" data-category="games">
-                <div class="portfolio-cover cover-purple">
-                    <img src="https://i.ytimg.com/vi/6J_LEFkAxEw/hqdefault.jpg" alt="VEGETA matou toda a Força Ginyu?!" loading="lazy">
-                    <span class="play-badge">▶</span>
-                    <span class="cover-status">Disponível</span>
-                </div>
-                <div class="portfolio-body">
-                    <div class="card-tag"><span class="tag">Games</span></div>
-                    <h3>VEGETA matou toda a Força Ginyu?!</h3>
-                    <p>#vegeta #dragonball #dragonballz #ginyu #nerim</p>
-                    <div class="portfolio-meta">
-                        <span>🎥 YouTube</span>
-                        <span class="status-live">Assistir →</span>
-                    </div>
-                </div>
-            </a>
-
-            <!-- Novo card: Animação -->
-            <a href="https://www.youtube.com/watch?v=ZBFu0JV2_4Y" target="_blank" rel="noopener" class="portfolio-card reveal" data-category="animacao">
-                <div class="portfolio-cover cover-pink">
-                    <img src="https://i.ytimg.com/vi/ZBFu0JV2_4Y/hqdefault.jpg" alt="O maior prodígio de Dragon Ball" loading="lazy">
-                    <span class="play-badge">▶</span>
-                    <span class="cover-status">Disponível</span>
-                </div>
-                <div class="portfolio-body">
-                    <div class="card-tag"><span class="tag pink">Animação</span></div>
-                    <h3>O maior prodígio de Dragon Ball</h3>
-                    <p>#nerim #freeza #dragonball #dragonballz #dragonballsuper</p>
-                    <div class="portfolio-meta">
-                        <span>🎥 YouTube</span>
-                        <span class="status-live">Assistir →</span>
-                    </div>
-                </div>
-            </a>
-
-            <!-- Novo card: Música -->
-            <a href="https://www.youtube.com/watch?v=Cc76UK1jWgw" target="_blank" rel="noopener" class="portfolio-card reveal" data-category="musica">
-                <div class="portfolio-cover cover-cyan">
-                    <img src="https://i.ytimg.com/vi/Cc76UK1jWgw/hqdefault.jpg" alt="Dean Winchester é o maior assassino das séries" loading="lazy">
-                    <span class="play-badge">▶</span>
-                    <span class="cover-status">Disponível</span>
-                </div>
-                <div class="portfolio-body">
-                    <div class="card-tag"><span class="tag cyan">Música</span></div>
-                    <h3>Dean Winchester é o maior assassino das séries?</h3>
-                    <p>#supernatural #deanwinchester</p>
-                    <div class="portfolio-meta">
-                        <span>🎥 YouTube</span>
-                        <span class="status-live">Assistir →</span>
-                    </div>
-                </div>
-            </a>
-        </div>
+        <div id="projects-status" class="projects-status" role="status" aria-live="polite">Carregando projetos...</div>
+        <div id="dynamic-projects" class="grid-3" aria-busy="true"></div>
     </div>
 </section>
-
-<section class="section">
-    <div class="container">
-        <div class="cta-banner reveal">
-            <h2>Gostou dos vídeos?</h2>
-            <p>Inscreva-se no canal e acompanhe as próximas histórias da cultura pop no YouTube.</p>
-            <a href="https://www.youtube.com/@nerimstudios" target="_blank" rel="noopener" class="btn btn-primary">Inscrever-se no canal →</a>
-        </div>
-    </div>
-</section>
+</main>
 
 <footer class="site-footer">
     <div class="footer-inner">
@@ -193,29 +80,177 @@
                 <div class="logo-mark"><img src="img/channel-avatar.jpg" alt="Logo Nerimstudios"></div>
                 <div class="logo-name"><span>Nerim</span>studios</div>
             </a>
-            <p>Estúdio de cultura pop criando vídeos, animações, jogos e conteúdo sobre os universos que você ama.</p>
+            <p>Estúdio de cultura pop criando vídeos e conteúdo sobre os universos que marcam gerações.</p>
         </div>
         <div class="footer-col">
             <h4>Navegação</h4>
             <a href="index.html">Início</a>
-            <a href="index.html#projetos">Destaques</a>
-            <a href="index.html#sobre">Sobre</a>
-            <a href="projetos.html">Projetos</a>
+            <a href="projetos.html" class="active">Projetos</a>
             <a href="poprank.html">PopRank</a>
+            <a href="sobre.html">Sobre</a>
         </div>
         <div class="footer-col">
-            <h4>Contato</h4>
+            <h4>Comunidade</h4>
+            <a href="forum.html">Fórum</a>
             <a href="contato.html">Fale Conosco</a>
-            <a href="https://www.youtube.com/@nerimstudios" target="_blank" rel="noopener">YouTube</a>
+        </div>
+        <div class="footer-col">
+            <h4>Redes Sociais</h4>
             <a href="https://www.instagram.com/nerimstudios" target="_blank" rel="noopener">Instagram</a>
+            <a href="https://www.youtube.com/@nerimstudios" target="_blank" rel="noopener">YouTube</a>
+            <a href="https://www.tiktok.com/@nerimstudios" target="_blank" rel="noopener">TikTok</a>
         </div>
     </div>
     <div class="footer-bottom">
         <span>© <span id="year"></span> Nerimstudios. Todos os direitos reservados.</span>
-        <span>Feito com 💜</span>
+        <span>Feito com cultura pop.</span>
     </div>
 </footer>
 
 <script src="js/main.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const container = document.getElementById('dynamic-projects');
+    const status = document.getElementById('projects-status');
+    const filterButtons = Array.from(document.querySelectorAll('.filter-btn'));
+    const hostname = window.location.hostname;
+    const isLocal = hostname === 'localhost' || hostname === '127.0.0.1' || hostname === '[::1]' || hostname.endsWith('.test');
+    const backendBase = isLocal ? 'http://localhost:3000' : '';
+
+    function getCategory(title) {
+        const lower = String(title || '').toLowerCase();
+        if (/\b(gta|vegeta|dragon ?ball|game|jogo)\b/.test(lower)) return 'games';
+        if (/\b(anime|goku|saiyan|naruto|f[eê]nix)\b/.test(lower)) return 'animacao';
+        if (/\b(m[uú]sica|song|theme|trilha)\b/.test(lower)) return 'musica';
+        return 'videos';
+    }
+
+    function getCategoryLabel(category) {
+        return { videos: 'Vídeos', games: 'Games', animacao: 'Animação', musica: 'Música' }[category] || 'Vídeos';
+    }
+
+    function formatRelativeDate(dateValue) {
+        const date = new Date(dateValue);
+        if (Number.isNaN(date.getTime())) return 'Data não informada';
+
+        const diffMinutes = Math.max(0, Math.floor((Date.now() - date.getTime()) / 60000));
+        if (diffMinutes < 60) return diffMinutes <= 5 ? 'há poucos minutos' : `há ${diffMinutes} minutos`;
+        const diffHours = Math.floor(diffMinutes / 60);
+        if (diffHours < 24) return `há ${diffHours} hora${diffHours === 1 ? '' : 's'}`;
+        const diffDays = Math.floor(diffHours / 24);
+        if (diffDays < 30) return `há ${diffDays} dia${diffDays === 1 ? '' : 's'}`;
+        return date.toLocaleDateString('pt-BR');
+    }
+
+    function setFilter(filter) {
+        const cards = container.querySelectorAll('.portfolio-card');
+        let visibleCount = 0;
+
+        cards.forEach(function(card) {
+            const visible = filter === 'todos' || card.dataset.category === filter;
+            card.hidden = !visible;
+            if (visible) visibleCount++;
+        });
+
+        filterButtons.forEach(function(button) {
+            const active = button.dataset.filter === filter;
+            button.classList.toggle('active', active);
+            button.setAttribute('aria-pressed', String(active));
+        });
+
+        status.textContent = visibleCount
+            ? `${visibleCount} projeto${visibleCount === 1 ? '' : 's'} encontrado${visibleCount === 1 ? '' : 's'}`
+            : 'Nenhum projeto encontrado nesta categoria.';
+    }
+
+    filterButtons.forEach(function(button) {
+        button.addEventListener('click', function() {
+            setFilter(button.dataset.filter);
+        });
+    });
+
+    function renderProjects(videos) {
+        container.replaceChildren();
+
+        if (!Array.isArray(videos) || videos.length === 0) {
+            container.setAttribute('aria-busy', 'false');
+            status.textContent = 'Nenhum projeto encontrado.';
+            return;
+        }
+
+        videos.slice(0, 8).forEach(function(video) {
+            if (!video || !video.videoId) return;
+
+            const category = getCategory(video.title);
+            const card = document.createElement('a');
+            card.href = `https://www.youtube.com/watch?v=${encodeURIComponent(video.videoId)}`;
+            card.target = '_blank';
+            card.rel = 'noopener';
+            card.className = 'portfolio-card reveal';
+            card.dataset.category = category;
+
+            const cover = document.createElement('div');
+            cover.className = 'portfolio-cover';
+            const image = document.createElement('img');
+            image.src = `https://i.ytimg.com/vi/${encodeURIComponent(video.videoId)}/hqdefault.jpg`;
+            image.alt = `Miniatura do vídeo ${video.title || 'Nerimstudios'}`;
+            image.loading = 'lazy';
+            image.width = 480;
+            image.height = 360;
+            const play = document.createElement('span');
+            play.className = 'play-badge';
+            play.setAttribute('aria-hidden', 'true');
+            play.textContent = '▶';
+            const availability = document.createElement('span');
+            availability.className = 'cover-status';
+            availability.textContent = 'Disponível';
+            cover.append(image, play, availability);
+
+            const body = document.createElement('div');
+            body.className = 'portfolio-body';
+            const tag = document.createElement('span');
+            tag.className = 'tag';
+            tag.textContent = getCategoryLabel(category);
+            const title = document.createElement('h3');
+            title.textContent = video.title || 'Vídeo da Nerimstudios';
+            const channel = document.createElement('p');
+            channel.textContent = video.channelTitle || 'Nerimstudios';
+            const meta = document.createElement('div');
+            meta.className = 'portfolio-meta';
+            const platform = document.createElement('span');
+            platform.textContent = 'YouTube';
+            const date = document.createElement('span');
+            date.textContent = formatRelativeDate(video.publishedAt);
+            meta.append(platform, date);
+            body.append(tag, title, channel, meta);
+            card.append(cover, body);
+            container.appendChild(card);
+        });
+
+        container.setAttribute('aria-busy', 'false');
+        status.textContent = `${container.querySelectorAll('.portfolio-card').length} projetos encontrados`;
+        initRevealAnimations(container);
+        setFilter('todos');
+    }
+
+    async function initProjects() {
+        try {
+            const response = await fetch(`${backendBase}/api/youtube/videos`);
+            if (!response.ok) throw new Error(`HTTP ${response.status}`);
+            const data = await response.json();
+            if (!data.success) throw new Error(data.error || 'Resposta inválida da API');
+            renderProjects(data.data);
+        } catch (error) {
+            container.replaceChildren();
+            container.setAttribute('aria-busy', 'false');
+            status.textContent = 'Os vídeos não puderam ser carregados agora.';
+            console.error('Erro ao carregar projetos:', error.message);
+        }
+    }
+
+    initProjects();
+});
+</script>
+
 </body>
 </html>
